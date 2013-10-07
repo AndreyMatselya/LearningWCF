@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="893f7e2f-c61b-499e-a5dd-dd6c994418a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://katusha:8733/trololo" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="trololo.xsd" MetadataType="Schema" ID="77aabc64-dbc0-44a1-8da5-8b1172f39898" SourceId="1" SourceUrl="http://katusha:8733/trololo?xsd=xsd2" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="fc493252-8129-4e3a-99fa-cec3d0efe92a" SourceId="1" SourceUrl="http://katusha:8733/trololo?wsdl" />
+    <MetadataFile FileName="trololo1.xsd" MetadataType="Schema" ID="b2122742-e1e7-4c81-902a-9c1d82589d4f" SourceId="1" SourceUrl="http://katusha:8733/trololo?xsd=xsd0" />
+    <MetadataFile FileName="trololo.disco" MetadataType="Disco" ID="184263a9-5c6c-4840-9167-9fe42a2613c8" SourceId="1" SourceUrl="http://katusha:8733/trololo?disco" />
+    <MetadataFile FileName="trololo2.xsd" MetadataType="Schema" ID="f530c441-ca6c-448f-8dcc-12280781c89c" SourceId="1" SourceUrl="http://katusha:8733/trololo?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
