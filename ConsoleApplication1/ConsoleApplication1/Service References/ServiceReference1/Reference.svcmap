@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="893f7e2f-c61b-499e-a5dd-dd6c994418a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d7f3b039-89be-48b0-85f4-f772d036918e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,9 +9,7 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
-    </CollectionMappings>
+    <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -21,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://katusha:8733/trololo" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/trololo/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="trololo.xsd" MetadataType="Schema" ID="77aabc64-dbc0-44a1-8da5-8b1172f39898" SourceId="1" SourceUrl="http://katusha:8733/trololo?xsd=xsd2" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="fc493252-8129-4e3a-99fa-cec3d0efe92a" SourceId="1" SourceUrl="http://katusha:8733/trololo?wsdl" />
-    <MetadataFile FileName="trololo1.xsd" MetadataType="Schema" ID="b2122742-e1e7-4c81-902a-9c1d82589d4f" SourceId="1" SourceUrl="http://katusha:8733/trololo?xsd=xsd0" />
-    <MetadataFile FileName="trololo.disco" MetadataType="Disco" ID="184263a9-5c6c-4840-9167-9fe42a2613c8" SourceId="1" SourceUrl="http://katusha:8733/trololo?disco" />
-    <MetadataFile FileName="trololo2.xsd" MetadataType="Schema" ID="f530c441-ca6c-448f-8dcc-12280781c89c" SourceId="1" SourceUrl="http://katusha:8733/trololo?xsd=xsd1" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="118b6f00-4746-4076-a57c-effb5aa4d00e" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4f6d6512-9f40-4543-a3fe-0c2f460a0d67" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="5e474521-bf30-4a62-bbc7-42a406da4953" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="ConsoleApplication1.xsd" MetadataType="Schema" ID="e30f600e-0a37-4be5-a3ba-82074a7b53bb" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -76,46 +76,46 @@ namespace ConsoleApplication1.ServiceReference1 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
-    public interface IService1:IService2 {
-              
-        [System.ServiceModel.OperationContractAttribute()]
+    public interface IService1 {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService2/GetDataWithService2", ReplyAction="http://tempuri.org/IService2/GetDataWithService2Response")]
+        string GetDataWithService2(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService2/GetDataWithService2", ReplyAction="http://tempuri.org/IService2/GetDataWithService2Response")]
+        System.Threading.Tasks.Task<string> GetDataWithService2Async(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetSimpleProperty", ReplyAction="http://tempuri.org/IService1/GetSimplePropertyResponse")]
+        string GetSimpleProperty();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetSimpleProperty", ReplyAction="http://tempuri.org/IService1/GetSimplePropertyResponse")]
+        System.Threading.Tasks.Task<string> GetSimplePropertyAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
         
-        [System.ServiceModel.OperationContractAttribute()]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
-        [System.ServiceModel.OperationContractAttribute()]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataDouble", ReplyAction="http://tempuri.org/IService1/GetDataDoubleResponse")]
         string GetDataDouble(double value);
         
-        [System.ServiceModel.OperationContractAttribute()]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataDouble", ReplyAction="http://tempuri.org/IService1/GetDataDoubleResponse")]
         System.Threading.Tasks.Task<string> GetDataDoubleAsync(double value);
         
-        [System.ServiceModel.OperationContractAttribute()]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         ConsoleApplication1.ServiceReference1.CompositeType GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite);
         
-        [System.ServiceModel.OperationContractAttribute()]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite);
     }
-
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-	[System.ServiceModel.ServiceContractAttribute(ConfigurationName = "ServiceReference1.IService1")]
-	public interface IService2
-	{
-
-		[System.ServiceModel.OperationContractAttribute()]
-		string GetDataWithService2(int value);
-
-		[System.ServiceModel.OperationContractAttribute()]
-		System.Threading.Tasks.Task<string> GetDataWithService2Async(int value);
-	}
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IService1Channel : ConsoleApplication1.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : Service2Client, ConsoleApplication1.ServiceReference1.IService1 {
+    public partial class Service1Client : System.ServiceModel.ClientBase<ConsoleApplication1.ServiceReference1.IService1>, ConsoleApplication1.ServiceReference1.IService1 {
         
         public Service1Client() {
         }
@@ -135,7 +135,23 @@ namespace ConsoleApplication1.ServiceReference1 {
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
-               
+        
+        public string GetDataWithService2(int value) {
+            return base.Channel.GetDataWithService2(value);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetDataWithService2Async(int value) {
+            return base.Channel.GetDataWithService2Async(value);
+        }
+        
+        public string GetSimpleProperty() {
+            return base.Channel.GetSimpleProperty();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetSimplePropertyAsync() {
+            return base.Channel.GetSimplePropertyAsync();
+        }
+        
         public string GetData(int value) {
             return base.Channel.GetData(value);
         }
@@ -160,44 +176,4 @@ namespace ConsoleApplication1.ServiceReference1 {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }
-
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-	public partial class Service2Client : System.ServiceModel.ClientBase<ConsoleApplication1.ServiceReference1.IService1>, ConsoleApplication1.ServiceReference1.IService2
-	{
-
-		public Service2Client()
-		{
-		}
-
-		public Service2Client(string endpointConfigurationName) :
-			base(endpointConfigurationName)
-		{
-		}
-
-		public Service2Client(string endpointConfigurationName, string remoteAddress) :
-			base(endpointConfigurationName, remoteAddress)
-		{
-		}
-
-		public Service2Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-			base(endpointConfigurationName, remoteAddress)
-		{
-		}
-
-		public Service2Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
-			base(binding, remoteAddress)
-		{
-		}
-
-		public string GetDataWithService2(int value)
-		{
-			return base.Channel.GetDataWithService2(value);
-		}
-
-		public System.Threading.Tasks.Task<string> GetDataWithService2Async(int value)
-		{
-			return base.Channel.GetDataWithService2Async(value);
-		}
-	}
 }

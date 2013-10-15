@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace ConsoleApplication1
@@ -31,6 +32,7 @@ namespace ConsoleApplication1
 
 	// Use a data contract as illustrated in the sample below to add composite types to service operations.
 	// You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "WcfServiceLibrary1.ContractType".
+	//[Serializable]
 	[DataContract]
 	public class CompositeType
 	{
