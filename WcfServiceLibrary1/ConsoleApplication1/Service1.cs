@@ -12,17 +12,17 @@ namespace ConsoleApplication1
 			return string.Format("You entered: {0}", value);
 		}
 
-		public CompositeType GetDataUsingDataContract(CompositeType composite)
+		public string GetDataUsingDataContract(CompositeType composite)
 		{
 			if (composite == null)
 			{
 				throw new ArgumentNullException("composite");
 			}
-			if (composite.BoolValue)
+			if (composite.BoooooolValue)
 			{
 				composite.StringValue += "Suffix";
 			}
-			return composite;
+			return composite.Helper.Result;
 		}
 
 		public string GetData(double value)

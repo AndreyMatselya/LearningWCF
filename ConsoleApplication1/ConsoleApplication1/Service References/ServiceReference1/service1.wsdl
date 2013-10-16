@@ -109,7 +109,7 @@
   </wsdl:binding>
   <wsdl:service name="Service1">
     <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
-      <soap:address location="http://localhost:8733/trololo/blin" />
+      <soap:address location="http://katusha:8733/trololo/blin" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

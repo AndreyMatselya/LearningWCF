@@ -23,10 +23,7 @@ namespace ConsoleApplication1.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private int ХерПоймиField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +36,14 @@ namespace ConsoleApplication1.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public int ХерПойми {
             get {
-                return this.BoolValueField;
+                return this.ХерПоймиField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((this.ХерПоймиField.Equals(value) != true)) {
+                    this.ХерПоймиField = value;
+                    this.RaisePropertyChanged("ХерПойми");
                 }
             }
         }
@@ -103,10 +87,10 @@ namespace ConsoleApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<string> GetDataDoubleAsync(double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        ConsoleApplication1.ServiceReference1.CompositeType GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite);
+        string GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite);
+        System.Threading.Tasks.Task<string> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -168,11 +152,11 @@ namespace ConsoleApplication1.ServiceReference1 {
             return base.Channel.GetDataDoubleAsync(value);
         }
         
-        public ConsoleApplication1.ServiceReference1.CompositeType GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite) {
+        public string GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite) {
+        public System.Threading.Tasks.Task<string> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }

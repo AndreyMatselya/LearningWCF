@@ -65,17 +65,14 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\ConsoleApplication1.xsd">
+    <None Include="Service References\ServiceReference1\ConsoleApplication11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service.wsdl" />
-    <None Include="Service References\ServiceReference1\service.xsd">
+    <None Include="Service References\ServiceReference1\service1.wsdl" />
+    <None Include="Service References\ServiceReference1\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service1.xsd">
+    <None Include="Service References\ServiceReference1\service21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
