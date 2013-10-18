@@ -6,6 +6,7 @@ namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
 	[ServiceContract]
+	//[ServiceKnownType(typeof(CompositeType))]
 	public interface IService1:IService2
 	{
 		[OperationContract]
@@ -18,8 +19,11 @@ namespace ConsoleApplication1
 		string GetData(double value);
 
 		[OperationContract]
-		string GetDataUsingDataContract(CompositeType composite);
+		CompositeHelper GetDataUsingDataContract(CompositeHelper composite);
 
+		[OperationContract]
+		//[ServiceKnownType(typeof(CompositeType))]
+		CompositeHelper GetDataUsingDataContract1(CompositeHelper composite);
 		// TODO: Add your service operations here
 	}
 
@@ -34,20 +38,28 @@ namespace ConsoleApplication1
 	// You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "WcfServiceLibrary1.ContractType".
 	//[Serializable]
 	[DataContract]
+	//[ServiceKnownType(typeof(CompositeType))]
 	public class CompositeHelper
 	{
 		[DataMember()]
 		public string Result{ get; set; }
 
 		[OnSerializing]
-		void Serealizinggg(StreamingContext streaming)
+		void Serealizing(StreamingContext streaming)
 		{
-			this.Result = "God Buy Andrey!";
+			//this.Result = "OnSerialized CompositeHelper";
 		}
+
+		[OnDeserializing]
+		void Deserealizing(StreamingContext streaming)
+		{
+			this.Result = "OnDeserializing Heello Andrey";
+		}
+
 	}
 
 	[DataContract]
-	public class CompositeType
+	public class CompositeType:CompositeHelper
 	{
 		bool boolValueeeeee = true;
 		string stringValue = "Hello ";
@@ -60,14 +72,14 @@ namespace ConsoleApplication1
 			set { boolValueeeeee = value; }
 		}
 
-		[OnSerializing]
+		[OnSerialized]
 		void Serealizinggg(StreamingContext streaming)
 		{
 			Helper.Result = "God Buy Andrey!";
 		}
 
-		[OnDeserialized]
-		void Deserealized(StreamingContext streaming)
+		[OnDeserializing]
+		void Deserealizing(StreamingContext streaming)
 		{
 			Helper = new CompositeHelper();
 			Helper.Result = "Heello Andrey";

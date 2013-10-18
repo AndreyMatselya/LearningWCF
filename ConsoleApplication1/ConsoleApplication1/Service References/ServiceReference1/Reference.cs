@@ -15,15 +15,16 @@ namespace ConsoleApplication1.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeHelper", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeType))]
+    public partial class CompositeHelper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ХерПоймиField;
+        private string ResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,14 +37,14 @@ namespace ConsoleApplication1.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ХерПойми {
+        public string Result {
             get {
-                return this.ХерПоймиField;
+                return this.ResultField;
             }
             set {
-                if ((this.ХерПоймиField.Equals(value) != true)) {
-                    this.ХерПоймиField = value;
-                    this.RaisePropertyChanged("ХерПойми");
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
                 }
             }
         }
@@ -54,6 +55,29 @@ namespace ConsoleApplication1.ServiceReference1 {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : ConsoleApplication1.ServiceReference1.CompositeHelper {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ХерПоймиField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ХерПойми {
+            get {
+                return this.ХерПоймиField;
+            }
+            set {
+                if ((this.ХерПоймиField.Equals(value) != true)) {
+                    this.ХерПоймиField = value;
+                    this.RaisePropertyChanged("ХерПойми");
+                }
             }
         }
     }
@@ -87,10 +111,16 @@ namespace ConsoleApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<string> GetDataDoubleAsync(double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        string GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite);
+        ConsoleApplication1.ServiceReference1.CompositeHelper GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeHelper composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<string> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite);
+        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeHelper composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract1", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContract1Response")]
+        ConsoleApplication1.ServiceReference1.CompositeHelper GetDataUsingDataContract1(ConsoleApplication1.ServiceReference1.CompositeHelper composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract1", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContract1Response")]
+        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContract1Async(ConsoleApplication1.ServiceReference1.CompositeHelper composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -152,12 +182,20 @@ namespace ConsoleApplication1.ServiceReference1 {
             return base.Channel.GetDataDoubleAsync(value);
         }
         
-        public string GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeType composite) {
+        public ConsoleApplication1.ServiceReference1.CompositeHelper GetDataUsingDataContract(ConsoleApplication1.ServiceReference1.CompositeHelper composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeType composite) {
+        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContractAsync(ConsoleApplication1.ServiceReference1.CompositeHelper composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
+        }
+        
+        public ConsoleApplication1.ServiceReference1.CompositeHelper GetDataUsingDataContract1(ConsoleApplication1.ServiceReference1.CompositeHelper composite) {
+            return base.Channel.GetDataUsingDataContract1(composite);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContract1Async(ConsoleApplication1.ServiceReference1.CompositeHelper composite) {
+            return base.Channel.GetDataUsingDataContract1Async(composite);
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Globalization;
+using System.ServiceModel;
 using System.Threading;
 
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+		
 	public class Service1 : IService1
 	{
 		public string GetData(int value)
@@ -12,17 +14,17 @@ namespace ConsoleApplication1
 			return string.Format("You entered: {0}", value);
 		}
 
-		public string GetDataUsingDataContract(CompositeType composite)
+		public CompositeHelper GetDataUsingDataContract(CompositeHelper composite)
 		{
 			if (composite == null)
 			{
 				throw new ArgumentNullException("composite");
 			}
-			if (composite.BoooooolValue)
-			{
-				composite.StringValue += "Suffix";
-			}
-			return composite.Helper.Result;
+			//if (composite.BoooooolValue)
+			//{
+			//	composite.StringValue += "Suffix";
+			//}
+			return composite;
 		}
 
 		public string GetData(double value)
@@ -41,6 +43,12 @@ namespace ConsoleApplication1
 		{
 			SimpleProperty = 34234.ToString(CultureInfo.InvariantCulture);
 			return SimpleProperty;
+		}
+
+
+		public CompositeHelper GetDataUsingDataContract1(CompositeHelper composite)
+		{
+			return composite;
 		}
 	}
 }
