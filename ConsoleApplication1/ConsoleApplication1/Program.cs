@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using ConsoleApplication1.ServiceReference1;
+using ConsoleApplication1.ServiceReference2;
 
 namespace ConsoleApplication1
 {
@@ -42,20 +43,25 @@ namespace ConsoleApplication1
 
 			*/
 
+
+			var service = new AddingUsersClient();
+			service.AddUser(291);
+
+
 			/*
 			Service2Client t = new Service1Client(binding, adress);
 			Console.WriteLine(t.GetDataWithService2(123123));*/
 
-			var _b = new DataContractSerializer(typeof(SomeClass));
+			//var _b = new DataContractSerializer(typeof(SomeClass));
 			//IFormatter _b = new NetDataContractSerializer();
 			//var stream = new StreamWriter();
-			using (var stream = new FileStream(@"C:\serial.txt", FileMode.Create))
-			{
+			//using (var stream = new FileStream(@"C:\serial.txt", FileMode.Create))
+		//	{
 				//_b.Serialize(stream, new SomeClass("ооООО") { Prop1 = "Мацеля", Prop2 = "Андрей", Prop3 = 123, Prop4 = 1234f, Mass = new[] { 12, 23, 44 } });
-				_b.WriteObject(stream, new SomeClass("ыыыЫЫЫы") { Prop1 = "Мацеля", Prop2 = "Андрей", Prop3 = 123, Prop4 = 1234f, Mass = new[] { 1, 2, 3, 4, 5 } });
+			//	_b.WriteObject(stream, new SomeClass("ыыыЫЫЫы") { Prop1 = "Мацеля", Prop2 = "Андрей", Prop3 = 123, Prop4 = 1234f, Mass = new[] { 1, 2, 3, 4, 5 } });
 				//stream.Seek(0, SeekOrigin.Begin);
 				//var cl = (SomeClass)_b.ReadObject(stream);
-			}
+			//}
 
 			
 			//Service1Client f = new Service2Client();
