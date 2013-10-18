@@ -58,14 +58,28 @@
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q1:CompositeHelper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeHelper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q3:CompositeHelper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContract1Result" nillable="true" type="q4:CompositeHelper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

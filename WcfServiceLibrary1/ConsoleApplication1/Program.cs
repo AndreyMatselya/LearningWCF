@@ -50,7 +50,7 @@ namespace ConsoleApplication1
 			public readonly string Address;
 		}
 
-		static readonly Uri BaseAddress = new Uri("http://localhost:8733/trololo");
+		static readonly Uri BaseAddress = new Uri("http://katusha:8733/trololo");
 		private static readonly Binding BasicHttpBinding;
 		static Dictionary<Type, HostRecord> m_Hosts = new Dictionary<Type, HostRecord>();
 
