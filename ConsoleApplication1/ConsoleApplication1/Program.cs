@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using ConsoleApplication1.ServiceReference1;
+using ConsoleApplication1.ServiceReference2;
 
 namespace ConsoleApplication1
 {
