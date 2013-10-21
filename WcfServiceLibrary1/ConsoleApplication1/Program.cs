@@ -30,6 +30,7 @@ namespace ConsoleApplication1
 			Console.WriteLine(channel.GetDataWithService2(324324));
 			Console.WriteLine(channel.GetData(324324f));
 			Console.WriteLine(channel.GetSimpleProperty());
+			channel.AddContact(new Contact(){FirstName = "Андрей",LastName = "Мацеля"});
 			Console.ReadLine();
 			InProcFactory.ClozeProxy(channel); 
 		}

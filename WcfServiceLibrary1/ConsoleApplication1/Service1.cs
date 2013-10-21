@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Threading;
 
@@ -12,6 +13,13 @@ namespace ConsoleApplication1
 		public string GetData(int value)
 		{
 			return string.Format("You entered: {0}", value);
+		}
+
+		private static IContact[] _contacts;
+
+		static Service1()
+		{
+			_contacts = new IContact[3];	
 		}
 
 		public CompositeHelper GetDataUsingDataContract(CompositeHelper composite)
@@ -45,10 +53,19 @@ namespace ConsoleApplication1
 			return SimpleProperty;
 		}
 
-
 		public CompositeHelper GetDataUsingDataContract1(CompositeHelper composite)
 		{
 			return composite;
+		}
+
+		public IContact[] GetContancts()
+		{
+			return _contacts;
+		}
+
+		public void AddContact(IContact contact)
+		{
+			_contacts[0] = new Contact() { FirstName = contact.FirstName, LastName = contact.LastName };
 		}
 	}
 }

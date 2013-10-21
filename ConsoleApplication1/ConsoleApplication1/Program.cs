@@ -46,7 +46,10 @@ namespace ConsoleApplication1
 			Service1Client t = new Service1Client(binding, adress);
 			Console.WriteLine(t.GetDataWithService2(777777777));
 			var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
-			Console.WriteLine(result.Result);
+			t.AddContact(new Contact(){FirstName="asda", LastName="dsfds"});
+			
+			var respond = t.GetContancts()[0];
+			//Console.WriteLine(result.Result);
 			Console.ReadLine();
 
 

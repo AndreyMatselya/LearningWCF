@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetDataWithService2_InputMessage">
@@ -12,6 +13,18 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetDataWithService2_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataWithService2Response" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContact" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetContancts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContancts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetContancts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContanctsResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetSimpleProperty_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSimpleProperty" />
@@ -48,6 +61,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService2/GetDataWithService2" message="tns:IService1_GetDataWithService2_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService2/GetDataWithService2Response" message="tns:IService1_GetDataWithService2_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddContact" message="tns:IService1_AddContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddContactResponse" message="tns:IService1_AddContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContancts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetContancts" message="tns:IService1_GetContancts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetContanctsResponse" message="tns:IService1_GetContancts_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetSimpleProperty">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSimpleProperty" message="tns:IService1_GetSimpleProperty_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSimplePropertyResponse" message="tns:IService1_GetSimpleProperty_OutputMessage" />
@@ -73,6 +94,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetDataWithService2">
       <soap:operation soapAction="http://tempuri.org/IService2/GetDataWithService2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContancts">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetContancts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
