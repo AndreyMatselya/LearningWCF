@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d7f3b039-89be-48b0-85f4-f772d036918e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="732bd6ee-6661-42b4-8a29-47c4651cdc3c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/trololo/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://127.0.0.1:8733/transmission/users/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="56396ad4-f6f4-472e-a1c7-6f0b755faf54" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="21061473-0a57-41eb-a58a-cceb23884052" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="8a6ee1b6-2efb-48c3-b494-fc08f817314d" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="ConsoleApplication1.xsd" MetadataType="Schema" ID="ad510a86-8e2b-467a-8b96-2410c2c6d57b" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="c4a4e620-7ac3-40a6-af4b-24a268fea581" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8733/transmission/users/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="8697417a-204e-4d65-a249-d252352ce7dc" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8733/transmission/users/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="6f0bce89-a945-40fa-9362-d398e2ae136b" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8733/transmission/users/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

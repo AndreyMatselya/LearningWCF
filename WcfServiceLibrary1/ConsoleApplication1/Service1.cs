@@ -50,5 +50,10 @@ namespace ConsoleApplication1
 		{
 			return composite;
 		}
+
+		public Contact GetPersonContact(Person person)
+		{
+			return new Contact() {FirstName = person.FirstName + 1, LastName = person.LastName + 1};
+		}
 	}
 }

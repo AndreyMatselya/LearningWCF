@@ -30,8 +30,11 @@ namespace ConsoleApplication1
 
 
 
-			EndpointAddress adress = new EndpointAddress("http://katusha:8733/trololo/blin");
+			EndpointAddress adress = new EndpointAddress("http://localhost:8733/trololo/blin");
 			var binding = new BasicHttpBinding();
+			//AddingUsersClient g = new AddingUsersClient();
+			//g.AddUser(291);
+
 
 			/*
 			IService1 client = ChannelFactory<IService1>.CreateChannel(binding, adress);
@@ -43,12 +46,16 @@ namespace ConsoleApplication1
 
 			*/
 
-			
-			Service1Client t = new Service1Client(binding, adress);
-			Console.WriteLine(t.GetDataWithService2(777777777));
-			var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
-			Console.WriteLine(result.Result);
+			var service = new Service1Client(binding, adress);
+			var result = service.GetPersonContact(new Contact(){FirstName = "Андрей", LastName = "Мацеля"}).FirstName;
 			Console.ReadLine();
+
+
+			//Service1Client t = new Service1Client(binding, adress);
+			//Console.WriteLine(t.GetDataWithService2(777777777));
+			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
+			//Console.WriteLine(result.Result);
+			//Console.ReadLine();
 
 
 			//var _b = new DataContractSerializer(typeof(SomeClass));

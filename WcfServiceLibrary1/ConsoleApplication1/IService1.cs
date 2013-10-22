@@ -25,6 +25,9 @@ namespace ConsoleApplication1
 		//[ServiceKnownType(typeof(CompositeType))]
 		CompositeHelper GetDataUsingDataContract1(CompositeHelper composite);
 		// TODO: Add your service operations here
+
+		[OperationContract]
+		Contact GetPersonContact(Person person);
 	}
 
 	[ServiceContract]
@@ -99,5 +102,47 @@ namespace ConsoleApplication1
 			get { return m_int; }
 			set { m_int = value; }
 		}
+	}
+
+	[DataContract]
+	public class Contact
+	{
+		public Contact()
+		{
+			//FirstName = "Просто так";
+		}
+		
+		[DataMember]
+		public string FirstName { get; set; }
+
+		[DataMember]
+		public string LastName { get; set; }
+	}
+
+	[DataContract(Name = "Contact")]
+	public class Person
+	{
+		[DataMember]
+		public string FirstName { get; set; }
+
+		[DataMember]
+		public string LastName { get; set; }
+
+		public Person()
+		{
+			FirstName = "Просто так";
+		}
+
+		[OnDeserializing]
+		public void Deser(StreamingContext context)
+		{
+			FirstName = "Просто так";
+		}
+
+		//[OnDeserialized]
+		//public void Desered(StreamingContext context)
+		//{
+		//	FirstName = "Просто так";
+		//}
 	}
 }
