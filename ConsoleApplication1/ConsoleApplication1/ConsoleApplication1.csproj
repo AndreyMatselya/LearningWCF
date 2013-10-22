@@ -70,6 +70,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference1\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.CompositeHelper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

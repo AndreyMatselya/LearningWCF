@@ -46,8 +46,14 @@ namespace ConsoleApplication1
 
 			*/
 
-			var service = new Service1Client(binding, adress);
-			var result = service.GetPersonContact(new Contact(){FirstName = "Андрей", LastName = "Мацеля"}).FirstName;
+			
+			Service1Client t = new Service1Client(binding, adress);
+			Console.WriteLine(t.GetDataWithService2(777777777));
+			var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
+			t.AddContact(new Contact(){FirstName="asda", LastName="dsfds"});
+			
+			var respond = t.GetContancts()[0];
+			//Console.WriteLine(result.Result);
 			Console.ReadLine();
 
 

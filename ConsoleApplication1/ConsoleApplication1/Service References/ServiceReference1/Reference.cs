@@ -59,6 +59,12 @@ namespace ConsoleApplication1.ServiceReference1 {
         }
     }
     
+	public interface IContact
+	{
+		string FirstName { get; set; }
+		string LastName { get; set; }
+	}
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
@@ -86,7 +92,8 @@ namespace ConsoleApplication1.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Contact", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
     [System.SerializableAttribute()]
-    public partial class Contact : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+	public partial class Contact : IContact, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+	{
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -152,6 +159,26 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService2/GetDataWithService2", ReplyAction="http://tempuri.org/IService2/GetDataWithService2Response")]
         System.Threading.Tasks.Task<string> GetDataWithService2Async(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddContact", ReplyAction="http://tempuri.org/IService1/AddContactResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeHelper))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Contact))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+		void AddContact(IContact contact);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddContact", ReplyAction="http://tempuri.org/IService1/AddContactResponse")]
+		System.Threading.Tasks.Task AddContactAsync(IContact contact);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetContancts", ReplyAction="http://tempuri.org/IService1/GetContanctsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeHelper))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Contact))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        object[] GetContancts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetContancts", ReplyAction="http://tempuri.org/IService1/GetContanctsResponse")]
+        System.Threading.Tasks.Task<object[]> GetContanctsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetSimpleProperty", ReplyAction="http://tempuri.org/IService1/GetSimplePropertyResponse")]
         string GetSimpleProperty();
@@ -223,6 +250,24 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> GetDataWithService2Async(int value) {
             return base.Channel.GetDataWithService2Async(value);
+        }
+
+		public void AddContact(IContact contact)
+		{
+            base.Channel.AddContact(contact);
+        }
+
+		public System.Threading.Tasks.Task AddContactAsync(IContact contact)
+		{
+            return base.Channel.AddContactAsync(contact);
+        }
+        
+        public object[] GetContancts() {
+            return base.Channel.GetContancts();
+        }
+        
+        public System.Threading.Tasks.Task<object[]> GetContanctsAsync() {
+            return base.Channel.GetContanctsAsync();
         }
         
         public string GetSimpleProperty() {

@@ -6,9 +6,16 @@ namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
 	[ServiceContract]
-	//[ServiceKnownType(typeof(CompositeType))]
+	[ServiceKnownType(typeof(Contact))]
+	[ServiceKnownType(typeof(CompositeType))]
 	public interface IService1:IService2
 	{
+		[OperationContract]
+		void AddContact(IContact contact);
+
+		[OperationContract]
+		IContact[] GetContancts();
+
 		[OperationContract]
 		string GetSimpleProperty();
 
@@ -36,12 +43,27 @@ namespace ConsoleApplication1
 		[OperationContract]
 		string GetDataWithService2(int value);
 	}
-
+	
+	public interface IContact
+	{
+		string FirstName { get; set; }
+		string LastName { get; set; }
+	}
+	
+	[DataContract]
+	public class Contact:IContact
+	{
+		[DataMember]
+		public string FirstName { get; set; }
+		
+		[DataMember]
+		public string LastName { get; set; }
+	}
 	// Use a data contract as illustrated in the sample below to add composite types to service operations.
 	// You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "WcfServiceLibrary1.ContractType".
 	//[Serializable]
 	[DataContract]
-	//[ServiceKnownType(typeof(CompositeType))]
+	
 	public class CompositeHelper
 	{
 		[DataMember()]

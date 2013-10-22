@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
   <xs:element name="GetDataWithService2">
     <xs:complexType>
@@ -12,6 +13,30 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetDataWithService2Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="contact" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContancts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContanctsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetContanctsResult" nillable="true" type="q1:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,28 +83,28 @@
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q1:CompositeHelper" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q2:CompositeHelper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeHelper" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q3:CompositeHelper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContract1">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q3:CompositeHelper" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="composite" nillable="true" type="q4:CompositeHelper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContract1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContract1Result" nillable="true" type="q4:CompositeHelper" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetDataUsingDataContract1Result" nillable="true" type="q5:CompositeHelper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
