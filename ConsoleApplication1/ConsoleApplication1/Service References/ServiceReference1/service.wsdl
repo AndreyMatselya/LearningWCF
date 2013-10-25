@@ -56,6 +56,12 @@
   <wsdl:message name="IService1_GetDataUsingDataContract1_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract1Response" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetPersonContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonContact" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPersonContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonContactResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetDataWithService2">
       <wsdl:input wsaw:Action="http://tempuri.org/IService2/GetDataWithService2" message="tns:IService1_GetDataWithService2_InputMessage" />
@@ -88,6 +94,10 @@
     <wsdl:operation name="GetDataUsingDataContract1">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract1" message="tns:IService1_GetDataUsingDataContract1_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract1Response" message="tns:IService1_GetDataUsingDataContract1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPersonContact" message="tns:IService1_GetPersonContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPersonContactResponse" message="tns:IService1_GetPersonContact_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -164,10 +174,19 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPersonContact">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPersonContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">
     <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
-      <soap:address location="http://katusha:8733/trololo/blin" />
+      <soap:address location="http://localhost:8733/trololo/blin" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
