@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Diagnostics;
+using System.Net.Mail;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
@@ -23,16 +27,18 @@ namespace ConsoleApplication1
 			//host.Open();
 			//Console.ReadLine();
 			//host.Close();
-
-
-
+			//Debug.Assert(false,"Введи токен");
+			var obj = typeof (DataSet).GetCustomAttributes(typeof (SerializableAttribute), false);
 			var channel = InProcFactory.CreateInstance<Service1, IService1>();
-			Console.WriteLine(channel.GetDataWithService2(324324));
-			Console.WriteLine(channel.GetData(324324f));
-			Console.WriteLine(channel.GetSimpleProperty());
-			channel.AddContact(new Contact(){FirstName = "Андрей",LastName = "Мацеля"});
+			Console.WriteLine("СЛУЖБА ЗАПУЩЕНА");
+			//Console.WriteLine(channel.GetDataWithService2(324324));
+			//Console.WriteLine(channel.GetData(324324f));
+			//Console.WriteLine(channel.GetSimpleProperty());
 			Console.ReadLine();
 			InProcFactory.ClozeProxy(channel); 
+
+			ICollection tt = new MailAddressCollection();
+
 		}
 	}
 
