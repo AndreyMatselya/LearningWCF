@@ -19,17 +19,17 @@ using ConsoleApplication1.ServiceReference1;
 
 namespace ConsoleApplication1
 {
-	class Program:ServiceHost
+	class Program : ServiceHost
 	{
-		
 		[STAThread]
 		static void Main(string[] args)
 		{
 			//var client = new Service1Client("BasicHttpBinding_IService1");
 
+			var lines = File.ReadLines("data.txt");
+			string lastLine = lines.ElementAt(lines.Count());
 
-
-			EndpointAddress adress = new EndpointAddress("http://localhost:8733/trololo/blin");
+			EndpointAddress adress = new EndpointAddress("http://katusha:8733/trololo/blin");
 			var binding = new BasicHttpBinding();
 			//AddingUsersClient g = new AddingUsersClient();
 			//g.AddUser(291);
@@ -45,17 +45,16 @@ namespace ConsoleApplication1
 
 			*/
 
-			
+
 			Service1Client t = new Service1Client(binding, adress);
-			Console.WriteLine(t.GetDataWithService2(777777777));
-			var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
-			t.AddContact(new Contact(){FirstName="asda", LastName="dsfds"});
-			
-			var respond = t.GetContancts()[0];
+			//Console.WriteLine(t.GetDataWithService2(777777777));
+			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
+			var result = t.GetUserStatus(UserStatus.Незабаненный);
+			var response = t.GetPersonContact(new Contact(), 6);
 			//Console.WriteLine(result.Result);
 			Console.ReadLine();
 
-
+			#region закоменчено
 			//Service1Client t = new Service1Client(binding, adress);
 			//Console.WriteLine(t.GetDataWithService2(777777777));
 			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
@@ -87,6 +86,7 @@ namespace ConsoleApplication1
 				metadata.WriteTo(xmlWriter);
 			}
 			*/
+			#endregion
 		}
 	}
 
@@ -109,10 +109,10 @@ namespace ConsoleApplication1
 			set { _hhh = value; }
 		}
 		[DataMember]
-		public int Prop3{ get; set; }
+		public int Prop3 { get; set; }
 
 		[DataMember]
-		public double Prop4{ get; set; }
+		public double Prop4 { get; set; }
 
 		//[DataMember]
 		[DataMember]

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 
@@ -10,11 +14,11 @@ namespace ConsoleApplication1
 	[ServiceKnownType(typeof(CompositeType))]
 	public interface IService1:IService2
 	{
-		[OperationContract]
-		void AddContact(IContact contact);
+		//[OperationContract]
+		//void AddContact(IContact contact);
 
-		[OperationContract]
-		IContact[] GetContancts();
+		//[OperationContract]
+		//IContact[] GetContancts();
 
 		[OperationContract]
 		string GetSimpleProperty();
@@ -34,7 +38,45 @@ namespace ConsoleApplication1
 		// TODO: Add your service operations here
 
 		[OperationContract]
-		Contact GetPersonContact(Person person);
+		Contact GetPersonContact(Contact person, int y);
+
+		[OperationContract]
+		UserStatus GetUserStatus(UserStatus status);
+
+		[OperationContract]
+		DataSet GetTables();
+
+		[OperationContract]
+		int GetGenericInt(MyClass<int> i);
+
+		[OperationContract]
+		string GetGenericString(MyClass<string> i);
+
+		[OperationContract]
+		Contact GetGenericContact(MyClass<Contact> i);
+
+		[OperationContract]
+		Person GetGenericPerson(MyClass<Person> i);
+
+		[OperationContract]
+		List<Person> GetPersons();
+
+		#region неработающая хрнь с датасетом
+
+		//[OperationContract]
+		//void AddContacts(MyDataSet.ContactsDataTable contacts);
+
+		//[OperationContract]
+		//MyDataSet.ContactsDataTable GetContacts();
+
+		#endregion
+	}
+
+	[DataContract(Name = "My{0}{#}ClassOf")]
+	public class MyClass<T>
+	{
+		[DataMember]
+		public T Member { get; set; }
 	}
 
 	[ServiceContract]
@@ -49,21 +91,60 @@ namespace ConsoleApplication1
 		string FirstName { get; set; }
 		string LastName { get; set; }
 	}
-	
-	[DataContract]
-	public class Contact:IContact
-	{
-		[DataMember]
-		public string FirstName { get; set; }
-		
-		[DataMember]
-		public string LastName { get; set; }
-	}
-	// Use a data contract as illustrated in the sample below to add composite types to service operations.
-	// You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "WcfServiceLibrary1.ContractType".
+
+	#region Неработающая хрень с датасето и дататейблом
 	//[Serializable]
+	//public partial class MyDataSet : DataSet
+	//{
+	//	[Serializable]
+	//	public partial class ContactsDataTable : DataTable, IEnumerable
+	//	{
+	//		public void AddContactsRow(ContactsRow row)
+	//		{
+
+	//		}
+	//		public ContactsRow AddContactsRow(string FirstName, string LastName)
+	//		{
+	//			return null;
+	//		}
+
+	//		public IEnumerator GetEnumerator()
+	//		{
+	//			return null;
+	//		}
+	//	}
+
+	//	public partial class ContactsRow 
+	//	{
+	//		protected internal ContactsRow()
+			
+	//		{
+	//		}
+			
+	//		public string FirstString { get; set; }
+	//	}
+	//}
+
+	//public partial class ContactsTableAdapter : Component
+	//{
+	//	public virtual MyDataSet.ContactsDataTable GetData()
+	//	{
+	//		return new MyDataSet.ContactsDataTable();
+	//	}
+	//}
+	#endregion
+
 	[DataContract]
-	
+	public enum UserStatus
+	{
+		Banned = 1,
+		[EnumMember(Value = "Не забаненный")]
+		Unbanned = 2,
+		Deleted = 3
+	}
+
+	#region CompositeHelper и Type
+	[DataContract]
 	public class CompositeHelper
 	{
 		[DataMember()]
@@ -126,22 +207,56 @@ namespace ConsoleApplication1
 		}
 	}
 
+#endregion
+
 	[DataContract]
 	public class Contact
 	{
 		public Contact()
 		{
-			//FirstName = "Просто так";
+			FirstName = "Просто так конструктор";
 		}
-		
-		[DataMember]
+
+		//[field: DataMember]
+		//public event SimpleDelagete MHandler;
+
+		//protected virtual void OnMHandler(int i)
+		//{
+		//	SimpleDelagete handler = MHandler;
+		//	if (handler != null) handler(i);
+		//}
+
+		//[DataMember]
+		//public UserStatus Status{ get; set; }
+
+		[DataMember(IsRequired = true)]
 		public string FirstName { get; set; }
 
 		[DataMember]
 		public string LastName { get; set; }
-	}
 
-	[DataContract(Name = "Contact")]
+		[DataMember]
+		public string AddedProp { get; set; }
+
+		[OnDeserializing]
+		public void Deser(StreamingContext context)
+		{
+			LastName = "Просто так Contact";
+		}
+
+		[OnDeserialized]
+		public void Desered(StreamingContext context)
+		{
+			//FirstName = "Просто так Contact";
+			AddedProp = "Просто так Person";
+		}
+
+
+	}
+	//[Serializable]
+	//public delegate void SimpleDelagete(int i);
+
+	[DataContract()]
 	public class Person
 	{
 		[DataMember]
@@ -149,22 +264,23 @@ namespace ConsoleApplication1
 
 		[DataMember]
 		public string LastName { get; set; }
-
+		
 		public Person()
 		{
-			FirstName = "Просто так";
+			FirstName = "Просто так Person";
 		}
 
 		[OnDeserializing]
 		public void Deser(StreamingContext context)
 		{
-			FirstName = "Просто так";
+			FirstName = "Просто так Person";
 		}
 
-		//[OnDeserialized]
-		//public void Desered(StreamingContext context)
-		//{
-		//	FirstName = "Просто так";
-		//}
+		[OnDeserialized]
+		public void Desered(StreamingContext context)
+		{
+			FirstName = "Просто так Person";
+
+		}
 	}
 }

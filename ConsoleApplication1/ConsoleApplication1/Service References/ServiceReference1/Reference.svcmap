@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d7f3b039-89be-48b0-85f4-f772d036918e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="14f5a25f-4bd7-4ba1-8577-dde55cc7e0f6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://katusha:8733/trololo/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="becc21b4-d546-4307-b8ea-b9b6ddcc1bf3" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="c682f0ac-fade-41c0-b2b0-098e75333088" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="ConsoleApplication11.xsd" MetadataType="Schema" ID="72927f98-4276-4d9c-bfd6-9dd3550c7d3a" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="e4d225be-c936-464a-a3df-b966c4fdd29b" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="bb6d934c-eafa-48d5-a6b6-c12703aaa2dd" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="6bbb80a6-ef8e-4087-b371-e115daac107c" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="347242f4-01ae-444f-b917-f2f9796738d6" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="ConsoleApplication1.xsd" MetadataType="Schema" ID="13def347-33a9-4baf-b515-3ae5d37bd8fd" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="868e3b95-e183-46c5-aaee-13ca7733baad" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="5368c255-3047-4a99-9886-ab7ac7a3af5f" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
