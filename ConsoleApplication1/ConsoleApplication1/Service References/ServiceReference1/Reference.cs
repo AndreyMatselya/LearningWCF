@@ -162,8 +162,14 @@ namespace ConsoleApplication1.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="UserStatus", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
     public enum UserStatus : int {
         
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Banned = 1,
+        
         [System.Runtime.Serialization.EnumMemberAttribute(Value="Не забаненный")]
         Незабаненный = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Deleted = 3,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -407,6 +413,13 @@ namespace ConsoleApplication1.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="MyCollection", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1", ItemName="anyType")]
+    [System.SerializableAttribute()]
+    public class MyCollection : System.Collections.Generic.List<object> {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -494,6 +507,24 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersons", ReplyAction="http://tempuri.org/IService1/GetPersonsResponse")]
         System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Person[]> GetPersonsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCollection", ReplyAction="http://tempuri.org/IService1/GetCollectionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeHelper))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Contact))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.UserStatus))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyintClassOf))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MystringClassOf))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyContactqWdCJ8gtClassOf))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyPersonqWdCJ8gtClassOf))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Person))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Person[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyCollection))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        ConsoleApplication1.ServiceReference1.MyCollection GetCollection(string[] people);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCollection", ReplyAction="http://tempuri.org/IService1/GetCollectionResponse")]
+        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.MyCollection> GetCollectionAsync(string[] people);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -633,6 +664,14 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Person[]> GetPersonsAsync() {
             return base.Channel.GetPersonsAsync();
+        }
+        
+        public ConsoleApplication1.ServiceReference1.MyCollection GetCollection(string[] people) {
+            return base.Channel.GetCollection(people);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.MyCollection> GetCollectionAsync(string[] people) {
+            return base.Channel.GetCollectionAsync(people);
         }
     }
 }

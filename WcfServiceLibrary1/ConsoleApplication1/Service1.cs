@@ -122,7 +122,12 @@ namespace ConsoleApplication1
 			return new List<Person>(){new Person(),new Person(),new Person(){FirstName = "Андрей",LastName = "Мацеля"}};
 		}
 
-		public int GetGenericInt(MyClass<int> i)
+        public MyCollection GetCollection(string[] peoples)
+	    {
+            return new MyCollection(peoples);
+	    }
+
+	    public int GetGenericInt(MyClass<int> i)
 		{
 			return i.Member;
 		}

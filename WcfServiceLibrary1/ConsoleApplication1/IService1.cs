@@ -61,15 +61,18 @@ namespace ConsoleApplication1
 		[OperationContract]
 		List<Person> GetPersons();
 
-		#region неработающая хрнь с датасетом
+        [OperationContract]
+        MyCollection GetCollection(string[] people);
 
-		//[OperationContract]
-		//void AddContacts(MyDataSet.ContactsDataTable contacts);
+	    #region неработающая хрнь с датасетом
 
-		//[OperationContract]
-		//MyDataSet.ContactsDataTable GetContacts();
+	    //[OperationContract]
+	    //void AddContacts(MyDataSet.ContactsDataTable contacts);
 
-		#endregion
+	    //[OperationContract]
+	    //MyDataSet.ContactsDataTable GetContacts();
+
+	    #endregion
 	}
 
 	[DataContract(Name = "My{0}{#}ClassOf")]
@@ -137,11 +140,64 @@ namespace ConsoleApplication1
 	[DataContract]
 	public enum UserStatus
 	{
+        [EnumMember]
 		Banned = 1,
 		[EnumMember(Value = "Не забаненный")]
 		Unbanned = 2,
+        [EnumMember]
 		Deleted = 3
 	}
+
+    [CollectionDataContract]
+    public class MyCollection:IEnumerable
+    {
+        private string[] _people;
+
+        public MyCollection(string[] people) 
+        {
+            _people = new string[people.Length];
+            for (var i = 0; i < people.Length; i++)
+            {
+                _people[i]  = people[i];
+            }
+            
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new Color(_people);
+        }
+    }
+
+    [DataContract]
+    public class Color:IEnumerator
+    {
+        public string[] _people;
+
+        private int _position = -1;
+
+        public Color(string[] people)
+        {
+            _people = people;
+        }
+        
+        public bool MoveNext()
+        {
+            _position++;
+            return _people.Length > _position;
+        }
+
+        public void Reset()
+        {
+            _position = -1;
+        }
+
+        [DataMember]
+        public object Current
+        {
+            get { return _people[_position]; }
+        }
+    }
 
 	#region CompositeHelper и Type
 	[DataContract]

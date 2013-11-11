@@ -6,6 +6,7 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
       <xsd:import />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetDataWithService2_InputMessage">
@@ -92,6 +93,12 @@
   <wsdl:message name="IService1_GetPersons_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPersonsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetCollection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollection" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCollection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollectionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetDataWithService2">
       <wsdl:input wsaw:Action="http://tempuri.org/IService2/GetDataWithService2" message="tns:IService1_GetDataWithService2_InputMessage" />
@@ -148,6 +155,10 @@
     <wsdl:operation name="GetPersons">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPersons" message="tns:IService1_GetPersons_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPersonsResponse" message="tns:IService1_GetPersons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCollection" message="tns:IService1_GetCollection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCollectionResponse" message="tns:IService1_GetCollection_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -271,6 +282,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPersons">
       <soap:operation soapAction="http://tempuri.org/IService1/GetPersons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollection">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCollection" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -26,11 +27,10 @@ namespace ConsoleApplication1
 		{
 			//var client = new Service1Client("BasicHttpBinding_IService1");
 
-			var lines = File.ReadLines("data.txt");
-			string lastLine = lines.ElementAt(lines.Count());
 
 			EndpointAddress adress = new EndpointAddress("http://katusha:8733/trololo/blin");
 			var binding = new BasicHttpBinding();
+		    binding.MaxReceivedMessageSize = 200000;
 			//AddingUsersClient g = new AddingUsersClient();
 			//g.AddUser(291);
 
@@ -49,9 +49,12 @@ namespace ConsoleApplication1
 			Service1Client t = new Service1Client(binding, adress);
 			//Console.WriteLine(t.GetDataWithService2(777777777));
 			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
-			var result = t.GetUserStatus(UserStatus.Незабаненный);
-			var response = t.GetPersonContact(new Contact(), 6);
-			//Console.WriteLine(result.Result);
+		    var response = t.GetCollection(new string[] {"Саша", "Маша", "Каша"});
+		    foreach (var item in (IEnumerable)response)
+		    {
+		        Console.WriteLine(item);
+		    }
+		    //Console.WriteLine(result.Result);
 			Console.ReadLine();
 
 			#region закоменчено
