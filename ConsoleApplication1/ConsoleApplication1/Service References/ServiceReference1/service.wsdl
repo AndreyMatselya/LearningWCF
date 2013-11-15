@@ -5,16 +5,9 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
-      <xsd:import />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService1_GetDataWithService2_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataWithService2" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetDataWithService2_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataWithService2Response" />
-  </wsdl:message>
   <wsdl:message name="IService1_GetSimpleProperty_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSimpleProperty" />
   </wsdl:message>
@@ -45,65 +38,19 @@
   <wsdl:message name="IService1_GetDataUsingDataContract1_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract1Response" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetPersonContact_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPersonContact" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetPersonContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPersonContactResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetUserStatus_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserStatus" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetUserStatus_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserStatusResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetTables_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTables" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetTables_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTablesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericInt_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericInt" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericInt_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericIntResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericString_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericString" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericString_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericStringResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericContact_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericContact" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericContactResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericPerson_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericPerson" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetGenericPerson_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGenericPersonResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetPersons_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPersons" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetPersons_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPersonsResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_GetCollection_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCollection" />
   </wsdl:message>
   <wsdl:message name="IService1_GetCollection_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCollectionResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEnum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnum" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEnum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnumResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
-    <wsdl:operation name="GetDataWithService2">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService2/GetDataWithService2" message="tns:IService1_GetDataWithService2_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService2/GetDataWithService2Response" message="tns:IService1_GetDataWithService2_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetSimpleProperty">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSimpleProperty" message="tns:IService1_GetSimpleProperty_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSimplePropertyResponse" message="tns:IService1_GetSimpleProperty_OutputMessage" />
@@ -124,54 +71,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract1" message="tns:IService1_GetDataUsingDataContract1_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract1Response" message="tns:IService1_GetDataUsingDataContract1_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetPersonContact">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPersonContact" message="tns:IService1_GetPersonContact_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPersonContactResponse" message="tns:IService1_GetPersonContact_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUserStatus">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUserStatus" message="tns:IService1_GetUserStatus_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserStatusResponse" message="tns:IService1_GetUserStatus_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTables">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTables" message="tns:IService1_GetTables_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTablesResponse" message="tns:IService1_GetTables_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericInt">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGenericInt" message="tns:IService1_GetGenericInt_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGenericIntResponse" message="tns:IService1_GetGenericInt_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericString">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGenericString" message="tns:IService1_GetGenericString_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGenericStringResponse" message="tns:IService1_GetGenericString_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericContact">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGenericContact" message="tns:IService1_GetGenericContact_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGenericContactResponse" message="tns:IService1_GetGenericContact_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericPerson">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGenericPerson" message="tns:IService1_GetGenericPerson_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGenericPersonResponse" message="tns:IService1_GetGenericPerson_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPersons">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPersons" message="tns:IService1_GetPersons_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPersonsResponse" message="tns:IService1_GetPersons_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetCollection">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCollection" message="tns:IService1_GetCollection_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCollectionResponse" message="tns:IService1_GetCollection_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetEnum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEnum" message="tns:IService1_GetEnum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEnumResponse" message="tns:IService1_GetEnum_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetDataWithService2">
-      <soap:operation soapAction="http://tempuri.org/IService2/GetDataWithService2" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetSimpleProperty">
       <soap:operation soapAction="http://tempuri.org/IService1/GetSimpleProperty" style="document" />
       <wsdl:input>
@@ -217,80 +127,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPersonContact">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetPersonContact" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUserStatus">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetUserStatus" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTables">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetTables" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericInt">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetGenericInt" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericString">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetGenericString" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericContact">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetGenericContact" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetGenericPerson">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetGenericPerson" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPersons">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetPersons" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetCollection">
       <soap:operation soapAction="http://tempuri.org/IService1/GetCollection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnum">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEnum" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

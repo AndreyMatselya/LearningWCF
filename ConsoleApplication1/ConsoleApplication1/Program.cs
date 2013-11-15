@@ -48,7 +48,8 @@ namespace ConsoleApplication1
 
 			Service1Client t = new Service1Client(binding, adress);
 			//Console.WriteLine(t.GetDataWithService2(777777777));
-			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});
+			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});+
+		    var p = t.GetData(343);
 		    var response = t.GetCollection(new string[] {"Саша", "Маша", "Каша"});
 		    foreach (var item in (IEnumerable)response)
 		    {

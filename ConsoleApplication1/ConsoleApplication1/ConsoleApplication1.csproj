@@ -72,16 +72,10 @@
     <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.CompositeHelper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.Contact.datasource">
+    <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.Gggg.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.MyCollection.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.Person.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.UserStatus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\ConsoleApplication1.xsd">
@@ -92,9 +86,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\service2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

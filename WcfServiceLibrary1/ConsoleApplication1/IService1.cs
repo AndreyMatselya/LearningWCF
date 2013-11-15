@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Runtime.Serialization;
@@ -10,9 +11,8 @@ namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
 	[ServiceContract]
-	[ServiceKnownType(typeof(Contact))]
 	[ServiceKnownType(typeof(CompositeType))]
-	public interface IService1:IService2
+	public interface IService1
 	{
 		//[OperationContract]
 		//void AddContact(IContact contact);
@@ -37,32 +37,11 @@ namespace ConsoleApplication1
 		CompositeHelper GetDataUsingDataContract1(CompositeHelper composite);
 		// TODO: Add your service operations here
 
-		[OperationContract]
-		Contact GetPersonContact(Contact person, int y);
-
-		[OperationContract]
-		UserStatus GetUserStatus(UserStatus status);
-
-		[OperationContract]
-		DataSet GetTables();
-
-		[OperationContract]
-		int GetGenericInt(MyClass<int> i);
-
-		[OperationContract]
-		string GetGenericString(MyClass<string> i);
-
-		[OperationContract]
-		Contact GetGenericContact(MyClass<Contact> i);
-
-		[OperationContract]
-		Person GetGenericPerson(MyClass<Person> i);
-
-		[OperationContract]
-		List<Person> GetPersons();
-
         [OperationContract]
         MyCollection GetCollection(string[] people);
+
+        [OperationContract]
+	    Gggg GetEnum();
 
 	    #region неработающая хрнь с датасетом
 
@@ -75,129 +54,69 @@ namespace ConsoleApplication1
 	    #endregion
 	}
 
-	[DataContract(Name = "My{0}{#}ClassOf")]
-	public class MyClass<T>
-	{
-		[DataMember]
-		public T Member { get; set; }
-	}
-
-	[ServiceContract]
-	public interface IService2
-	{
-		[OperationContract]
-		string GetDataWithService2(int value);
-	}
-	
-	public interface IContact
-	{
-		string FirstName { get; set; }
-		string LastName { get; set; }
-	}
-
-	#region Неработающая хрень с датасето и дататейблом
-	//[Serializable]
-	//public partial class MyDataSet : DataSet
-	//{
-	//	[Serializable]
-	//	public partial class ContactsDataTable : DataTable, IEnumerable
-	//	{
-	//		public void AddContactsRow(ContactsRow row)
-	//		{
-
-	//		}
-	//		public ContactsRow AddContactsRow(string FirstName, string LastName)
-	//		{
-	//			return null;
-	//		}
-
-	//		public IEnumerator GetEnumerator()
-	//		{
-	//			return null;
-	//		}
-	//	}
-
-	//	public partial class ContactsRow 
-	//	{
-	//		protected internal ContactsRow()
-			
-	//		{
-	//		}
-			
-	//		public string FirstString { get; set; }
-	//	}
-	//}
-
-	//public partial class ContactsTableAdapter : Component
-	//{
-	//	public virtual MyDataSet.ContactsDataTable GetData()
-	//	{
-	//		return new MyDataSet.ContactsDataTable();
-	//	}
-	//}
-	#endregion
-
-	[DataContract]
-	public enum UserStatus
-	{
+    [DataContract]
+    public enum Gggg
+    {
         [EnumMember]
-		Banned = 1,
-		[EnumMember(Value = "Не забаненный")]
-		Unbanned = 2,
-        [EnumMember]
-		Deleted = 3
-	}
+        dgdgf=1,
+        dsfdfs=2
+    }
 
     [CollectionDataContract]
-    public class MyCollection:IEnumerable
+    public class MyCollection:Collection<Color>
     {
-        private string[] _people;
+        public Color[] _people;
 
         public MyCollection(string[] people) 
         {
-            _people = new string[people.Length];
+            _people = new Color[people.Length];
             for (var i = 0; i < people.Length; i++)
             {
-                _people[i]  = people[i];
+                _people[i] = new Color() {Name = people[i]};
             }
             
         }
 
-        public IEnumerator GetEnumerator()
+        public MyCollection()
         {
-            return new Color(_people);
+            
         }
     }
-
-    [DataContract]
-    public class Color:IEnumerator
+    
+    public class Color
     {
-        public string[] _people;
-
-        private int _position = -1;
-
-        public Color(string[] people)
-        {
-            _people = people;
-        }
-        
-        public bool MoveNext()
-        {
-            _position++;
-            return _people.Length > _position;
-        }
-
-        public void Reset()
-        {
-            _position = -1;
-        }
-
-        [DataMember]
-        public object Current
-        {
-            get { return _people[_position]; }
-        }
+        public string Name { get; set; }
     }
+
+    //[DataContract]
+    //public class Color:IEnumerator
+    //{
+    //    public string[] _people;
+
+    //    private int _position = -1;
+
+    //    public Color(string[] people)
+    //    {
+    //        _people = people;
+    //    }
+        
+    //    public bool MoveNext()
+    //    {
+    //        _position++;
+    //        return _people.Length > _position;
+    //    }
+
+    //    public void Reset()
+    //    {
+    //        _position = -1;
+    //    }
+
+    //    [DataMember]
+    //    public object Current
+    //    {
+    //        get { return _people[_position]; }
+    //    }
+    //}
 
 	#region CompositeHelper и Type
 	[DataContract]
@@ -265,78 +184,4 @@ namespace ConsoleApplication1
 
 #endregion
 
-	[DataContract]
-	public class Contact
-	{
-		public Contact()
-		{
-			FirstName = "Просто так конструктор";
-		}
-
-		//[field: DataMember]
-		//public event SimpleDelagete MHandler;
-
-		//protected virtual void OnMHandler(int i)
-		//{
-		//	SimpleDelagete handler = MHandler;
-		//	if (handler != null) handler(i);
-		//}
-
-		//[DataMember]
-		//public UserStatus Status{ get; set; }
-
-		[DataMember(IsRequired = true)]
-		public string FirstName { get; set; }
-
-		[DataMember]
-		public string LastName { get; set; }
-
-		[DataMember]
-		public string AddedProp { get; set; }
-
-		[OnDeserializing]
-		public void Deser(StreamingContext context)
-		{
-			LastName = "Просто так Contact";
-		}
-
-		[OnDeserialized]
-		public void Desered(StreamingContext context)
-		{
-			//FirstName = "Просто так Contact";
-			AddedProp = "Просто так Person";
-		}
-
-
-	}
-	//[Serializable]
-	//public delegate void SimpleDelagete(int i);
-
-	[DataContract()]
-	public class Person
-	{
-		[DataMember]
-		public string FirstName { get; set; }
-
-		[DataMember]
-		public string LastName { get; set; }
-		
-		public Person()
-		{
-			FirstName = "Просто так Person";
-		}
-
-		[OnDeserializing]
-		public void Deser(StreamingContext context)
-		{
-			FirstName = "Просто так Person";
-		}
-
-		[OnDeserialized]
-		public void Desered(StreamingContext context)
-		{
-			FirstName = "Просто так Person";
-
-		}
-	}
 }

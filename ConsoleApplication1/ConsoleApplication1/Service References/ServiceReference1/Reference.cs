@@ -84,20 +84,22 @@ namespace ConsoleApplication1.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Contact", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="MyCollection", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1", ItemName="Color")]
     [System.SerializableAttribute()]
-    public partial class Contact : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public class MyCollection : System.Collections.Generic.List<ConsoleApplication1.ServiceReference1.Color> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Color", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
+    [System.SerializableAttribute()]
+    public partial class Color : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AddedPropField;
-        
-        private string FirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastNameField;
+        private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -110,40 +112,14 @@ namespace ConsoleApplication1.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AddedProp {
+        public string Name {
             get {
-                return this.AddedPropField;
+                return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.AddedPropField, value) != true)) {
-                    this.AddedPropField = value;
-                    this.RaisePropertyChanged("AddedProp");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string FirstName {
-            get {
-                return this.FirstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
-                    this.FirstNameField = value;
-                    this.RaisePropertyChanged("FirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastName {
-            get {
-                return this.LastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
-                    this.LastNameField = value;
-                    this.RaisePropertyChanged("LastName");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -159,276 +135,16 @@ namespace ConsoleApplication1.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserStatus", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    public enum UserStatus : int {
+    [System.Runtime.Serialization.DataContractAttribute(Name="Gggg", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
+    public enum Gggg : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Banned = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Не забаненный")]
-        Незабаненный = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Deleted = 3,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MyintClassOf", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    [System.SerializableAttribute()]
-    public partial class MyintClassOf : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MemberField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Member {
-            get {
-                return this.MemberField;
-            }
-            set {
-                if ((this.MemberField.Equals(value) != true)) {
-                    this.MemberField = value;
-                    this.RaisePropertyChanged("Member");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MystringClassOf", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    [System.SerializableAttribute()]
-    public partial class MystringClassOf : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MemberField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Member {
-            get {
-                return this.MemberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MemberField, value) != true)) {
-                    this.MemberField = value;
-                    this.RaisePropertyChanged("Member");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MyContactqWdCJ8gtClassOf", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    [System.SerializableAttribute()]
-    public partial class MyContactqWdCJ8gtClassOf : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApplication1.ServiceReference1.Contact MemberField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApplication1.ServiceReference1.Contact Member {
-            get {
-                return this.MemberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MemberField, value) != true)) {
-                    this.MemberField = value;
-                    this.RaisePropertyChanged("Member");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MyPersonqWdCJ8gtClassOf", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    [System.SerializableAttribute()]
-    public partial class MyPersonqWdCJ8gtClassOf : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApplication1.ServiceReference1.Person MemberField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApplication1.ServiceReference1.Person Member {
-            get {
-                return this.MemberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MemberField, value) != true)) {
-                    this.MemberField = value;
-                    this.RaisePropertyChanged("Member");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    [System.SerializableAttribute()]
-    public partial class Person : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FirstName {
-            get {
-                return this.FirstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
-                    this.FirstNameField = value;
-                    this.RaisePropertyChanged("FirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastName {
-            get {
-                return this.LastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
-                    this.LastNameField = value;
-                    this.RaisePropertyChanged("LastName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="MyCollection", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1", ItemName="anyType")]
-    [System.SerializableAttribute()]
-    public class MyCollection : System.Collections.Generic.List<object> {
+        dgdgf = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService2/GetDataWithService2", ReplyAction="http://tempuri.org/IService2/GetDataWithService2Response")]
-        string GetDataWithService2(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService2/GetDataWithService2", ReplyAction="http://tempuri.org/IService2/GetDataWithService2Response")]
-        System.Threading.Tasks.Task<string> GetDataWithService2Async(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetSimpleProperty", ReplyAction="http://tempuri.org/IService1/GetSimplePropertyResponse")]
         string GetSimpleProperty();
@@ -460,71 +176,17 @@ namespace ConsoleApplication1.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract1", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContract1Response")]
         System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContract1Async(ConsoleApplication1.ServiceReference1.CompositeHelper composite);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersonContact", ReplyAction="http://tempuri.org/IService1/GetPersonContactResponse")]
-        ConsoleApplication1.ServiceReference1.Contact GetPersonContact(ConsoleApplication1.ServiceReference1.Contact person, int y);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersonContact", ReplyAction="http://tempuri.org/IService1/GetPersonContactResponse")]
-        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Contact> GetPersonContactAsync(ConsoleApplication1.ServiceReference1.Contact person, int y);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserStatus", ReplyAction="http://tempuri.org/IService1/GetUserStatusResponse")]
-        ConsoleApplication1.ServiceReference1.UserStatus GetUserStatus(ConsoleApplication1.ServiceReference1.UserStatus status);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserStatus", ReplyAction="http://tempuri.org/IService1/GetUserStatusResponse")]
-        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.UserStatus> GetUserStatusAsync(ConsoleApplication1.ServiceReference1.UserStatus status);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTables", ReplyAction="http://tempuri.org/IService1/GetTablesResponse")]
-        System.Data.DataSet GetTables();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTables", ReplyAction="http://tempuri.org/IService1/GetTablesResponse")]
-        System.Threading.Tasks.Task<System.Data.DataSet> GetTablesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericInt", ReplyAction="http://tempuri.org/IService1/GetGenericIntResponse")]
-        int GetGenericInt(ConsoleApplication1.ServiceReference1.MyintClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericInt", ReplyAction="http://tempuri.org/IService1/GetGenericIntResponse")]
-        System.Threading.Tasks.Task<int> GetGenericIntAsync(ConsoleApplication1.ServiceReference1.MyintClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericString", ReplyAction="http://tempuri.org/IService1/GetGenericStringResponse")]
-        string GetGenericString(ConsoleApplication1.ServiceReference1.MystringClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericString", ReplyAction="http://tempuri.org/IService1/GetGenericStringResponse")]
-        System.Threading.Tasks.Task<string> GetGenericStringAsync(ConsoleApplication1.ServiceReference1.MystringClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericContact", ReplyAction="http://tempuri.org/IService1/GetGenericContactResponse")]
-        ConsoleApplication1.ServiceReference1.Contact GetGenericContact(ConsoleApplication1.ServiceReference1.MyContactqWdCJ8gtClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericContact", ReplyAction="http://tempuri.org/IService1/GetGenericContactResponse")]
-        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Contact> GetGenericContactAsync(ConsoleApplication1.ServiceReference1.MyContactqWdCJ8gtClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericPerson", ReplyAction="http://tempuri.org/IService1/GetGenericPersonResponse")]
-        ConsoleApplication1.ServiceReference1.Person GetGenericPerson(ConsoleApplication1.ServiceReference1.MyPersonqWdCJ8gtClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGenericPerson", ReplyAction="http://tempuri.org/IService1/GetGenericPersonResponse")]
-        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Person> GetGenericPersonAsync(ConsoleApplication1.ServiceReference1.MyPersonqWdCJ8gtClassOf i);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersons", ReplyAction="http://tempuri.org/IService1/GetPersonsResponse")]
-        ConsoleApplication1.ServiceReference1.Person[] GetPersons();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersons", ReplyAction="http://tempuri.org/IService1/GetPersonsResponse")]
-        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Person[]> GetPersonsAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCollection", ReplyAction="http://tempuri.org/IService1/GetCollectionResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.CompositeHelper))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Contact))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.UserStatus))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyintClassOf))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MystringClassOf))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyContactqWdCJ8gtClassOf))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyPersonqWdCJ8gtClassOf))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Person))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.Person[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleApplication1.ServiceReference1.MyCollection))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         ConsoleApplication1.ServiceReference1.MyCollection GetCollection(string[] people);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCollection", ReplyAction="http://tempuri.org/IService1/GetCollectionResponse")]
         System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.MyCollection> GetCollectionAsync(string[] people);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEnum", ReplyAction="http://tempuri.org/IService1/GetEnumResponse")]
+        ConsoleApplication1.ServiceReference1.Gggg GetEnum();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEnum", ReplyAction="http://tempuri.org/IService1/GetEnumResponse")]
+        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Gggg> GetEnumAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -552,14 +214,6 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string GetDataWithService2(int value) {
-            return base.Channel.GetDataWithService2(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataWithService2Async(int value) {
-            return base.Channel.GetDataWithService2Async(value);
         }
         
         public string GetSimpleProperty() {
@@ -602,76 +256,20 @@ namespace ConsoleApplication1.ServiceReference1 {
             return base.Channel.GetDataUsingDataContract1Async(composite);
         }
         
-        public ConsoleApplication1.ServiceReference1.Contact GetPersonContact(ConsoleApplication1.ServiceReference1.Contact person, int y) {
-            return base.Channel.GetPersonContact(person, y);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Contact> GetPersonContactAsync(ConsoleApplication1.ServiceReference1.Contact person, int y) {
-            return base.Channel.GetPersonContactAsync(person, y);
-        }
-        
-        public ConsoleApplication1.ServiceReference1.UserStatus GetUserStatus(ConsoleApplication1.ServiceReference1.UserStatus status) {
-            return base.Channel.GetUserStatus(status);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.UserStatus> GetUserStatusAsync(ConsoleApplication1.ServiceReference1.UserStatus status) {
-            return base.Channel.GetUserStatusAsync(status);
-        }
-        
-        public System.Data.DataSet GetTables() {
-            return base.Channel.GetTables();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataSet> GetTablesAsync() {
-            return base.Channel.GetTablesAsync();
-        }
-        
-        public int GetGenericInt(ConsoleApplication1.ServiceReference1.MyintClassOf i) {
-            return base.Channel.GetGenericInt(i);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetGenericIntAsync(ConsoleApplication1.ServiceReference1.MyintClassOf i) {
-            return base.Channel.GetGenericIntAsync(i);
-        }
-        
-        public string GetGenericString(ConsoleApplication1.ServiceReference1.MystringClassOf i) {
-            return base.Channel.GetGenericString(i);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetGenericStringAsync(ConsoleApplication1.ServiceReference1.MystringClassOf i) {
-            return base.Channel.GetGenericStringAsync(i);
-        }
-        
-        public ConsoleApplication1.ServiceReference1.Contact GetGenericContact(ConsoleApplication1.ServiceReference1.MyContactqWdCJ8gtClassOf i) {
-            return base.Channel.GetGenericContact(i);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Contact> GetGenericContactAsync(ConsoleApplication1.ServiceReference1.MyContactqWdCJ8gtClassOf i) {
-            return base.Channel.GetGenericContactAsync(i);
-        }
-        
-        public ConsoleApplication1.ServiceReference1.Person GetGenericPerson(ConsoleApplication1.ServiceReference1.MyPersonqWdCJ8gtClassOf i) {
-            return base.Channel.GetGenericPerson(i);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Person> GetGenericPersonAsync(ConsoleApplication1.ServiceReference1.MyPersonqWdCJ8gtClassOf i) {
-            return base.Channel.GetGenericPersonAsync(i);
-        }
-        
-        public ConsoleApplication1.ServiceReference1.Person[] GetPersons() {
-            return base.Channel.GetPersons();
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Person[]> GetPersonsAsync() {
-            return base.Channel.GetPersonsAsync();
-        }
-        
         public ConsoleApplication1.ServiceReference1.MyCollection GetCollection(string[] people) {
             return base.Channel.GetCollection(people);
         }
         
         public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.MyCollection> GetCollectionAsync(string[] people) {
             return base.Channel.GetCollectionAsync(people);
+        }
+        
+        public ConsoleApplication1.ServiceReference1.Gggg GetEnum() {
+            return base.Channel.GetEnum();
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Gggg> GetEnumAsync() {
+            return base.Channel.GetEnumAsync();
         }
     }
 }

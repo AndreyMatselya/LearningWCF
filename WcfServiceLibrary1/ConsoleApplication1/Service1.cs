@@ -10,6 +10,7 @@ using System.Data;
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+        
 	public class Service1 : IService1
 	{
 		public string GetData(int value)
@@ -71,20 +72,6 @@ namespace ConsoleApplication1
 		//}
 
 
-		public Contact GetPersonContact(Contact person, int u)
-		{
-			person.AddedProp = "Ну нормальненько";
-			Trace.WriteLine(person.AddedProp);
-			return person;
-		}
-
-
-		public UserStatus GetUserStatus(UserStatus status)
-		{
-			return status;
-		}
-
-
 		public DataSet GetTables()
 		{
 			throw new NotImplementedException();
@@ -102,34 +89,14 @@ namespace ConsoleApplication1
 		//}
 		#endregion
 
-		public string GetGenericString(MyClass<string> i)
-		{
-			return i.Member;
-		}
-
-		public Contact GetGenericContact(MyClass<Contact> i)
-		{
-			return i.Member;
-		}
-
-		public Person GetGenericPerson(MyClass<Person> i)
-		{
-			return i.Member;
-		}
-
-		public List<Person> GetPersons()
-		{
-			return new List<Person>(){new Person(),new Person(),new Person(){FirstName = "Андрей",LastName = "Мацеля"}};
-		}
-
         public MyCollection GetCollection(string[] peoples)
 	    {
             return new MyCollection(peoples);
 	    }
 
-	    public int GetGenericInt(MyClass<int> i)
-		{
-			return i.Member;
-		}
+	    public Gggg GetEnum()
+	    {
+	        return Gggg.dsfdfs;
+	    }
 	}
 }
