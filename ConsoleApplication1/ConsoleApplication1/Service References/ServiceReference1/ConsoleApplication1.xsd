@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ConsoleApplication1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="CompositeType">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CompositeHelper">
@@ -17,28 +16,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CompositeHelper" nillable="true" type="tns:CompositeHelper" />
-  <xs:complexType name="MyCollection">
+  <xs:complexType name="ArrayOfColor">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Color" nillable="true" type="tns:Color" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="MyCollection" nillable="true" type="tns:MyCollection" />
+  <xs:element name="ArrayOfColor" nillable="true" type="tns:ArrayOfColor" />
   <xs:complexType name="Color">
     <xs:sequence>
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Color" nillable="true" type="tns:Color" />
-  <xs:simpleType name="Gggg">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="dgdgf">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="Gggg" nillable="true" type="tns:Gggg" />
 </xs:schema>

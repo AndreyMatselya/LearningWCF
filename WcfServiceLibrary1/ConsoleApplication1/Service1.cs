@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Threading;
 using System.Data;
+using System.Linq;
 
 namespace ConsoleApplication1
 {
@@ -61,7 +62,15 @@ namespace ConsoleApplication1
 			return composite;
 		}
 
-		//public IContact[] GetContancts()
+	    public void ProcessArray(string[] array)
+	    {
+	        foreach (var s in array)
+	        {
+	            Debug.WriteLine(s);
+	        }
+	    }
+
+	    //public IContact[] GetContancts()
 		//{
 		//	return _contacts;
 		//}
@@ -89,14 +98,10 @@ namespace ConsoleApplication1
 		//}
 		#endregion
 
-        public MyCollection GetCollection(string[] peoples)
-	    {
-            return new MyCollection(peoples);
-	    }
+        public Stack<Color> GetCollection(string[] peoples)
+        {
+            return new Stack<Color>(peoples.Select(x => new Color() {Name = x}));
+        }
 
-	    public Gggg GetEnum()
-	    {
-	        return Gggg.dsfdfs;
-	    }
 	}
 }

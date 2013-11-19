@@ -14,11 +14,6 @@ namespace ConsoleApplication1
 	[ServiceKnownType(typeof(CompositeType))]
 	public interface IService1
 	{
-		//[OperationContract]
-		//void AddContact(IContact contact);
-
-		//[OperationContract]
-		//IContact[] GetContancts();
 
 		[OperationContract]
 		string GetSimpleProperty();
@@ -37,11 +32,11 @@ namespace ConsoleApplication1
 		CompositeHelper GetDataUsingDataContract1(CompositeHelper composite);
 		// TODO: Add your service operations here
 
-        [OperationContract]
-        MyCollection GetCollection(string[] people);
+	    [OperationContract]
+	    void ProcessArray(string[] array);
 
         [OperationContract]
-	    Gggg GetEnum();
+        Stack<Color> GetCollection(string[] people);
 
 	    #region неработающая хрнь с датасетом
 
@@ -54,25 +49,18 @@ namespace ConsoleApplication1
 	    #endregion
 	}
 
-    [DataContract]
-    public enum Gggg
-    {
-        [EnumMember]
-        dgdgf=1,
-        dsfdfs=2
-    }
 
     [CollectionDataContract]
     public class MyCollection:Collection<Color>
     {
-        public Color[] _people;
+        //public Color[] _people;
 
         public MyCollection(string[] people) 
         {
-            _people = new Color[people.Length];
+            //_people = new Color[people.Length];
             for (var i = 0; i < people.Length; i++)
             {
-                _people[i] = new Color() {Name = people[i]};
+               this.Add(new Color(){Name = people[i]});
             }
             
         }
@@ -87,36 +75,6 @@ namespace ConsoleApplication1
     {
         public string Name { get; set; }
     }
-
-    //[DataContract]
-    //public class Color:IEnumerator
-    //{
-    //    public string[] _people;
-
-    //    private int _position = -1;
-
-    //    public Color(string[] people)
-    //    {
-    //        _people = people;
-    //    }
-        
-    //    public bool MoveNext()
-    //    {
-    //        _position++;
-    //        return _people.Length > _position;
-    //    }
-
-    //    public void Reset()
-    //    {
-    //        _position = -1;
-    //    }
-
-    //    [DataMember]
-    //    public object Current
-    //    {
-    //        get { return _people[_position]; }
-    //    }
-    //}
 
 	#region CompositeHelper и Type
 	[DataContract]

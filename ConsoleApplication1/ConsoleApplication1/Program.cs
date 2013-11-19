@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using ConsoleApplication1.ServiceReference1;
@@ -36,11 +37,9 @@ namespace ConsoleApplication1
 			//Console.WriteLine(t.GetDataWithService2(777777777));
 			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});+
 		    var p = t.GetData(343);
-		    var response = t.GetCollection(new string[] {"Саша", "Маша", "Каша"});
-		    foreach (var item in (IEnumerable)response)
-		    {
-		        Console.WriteLine(item);
-		    }
+//		    var response = t.GetCollection(new[] {"Саша", "Маша", "Каша"});
+
+		    t.ProcessArray(new MyCollection(new string[] {"sfdsf", "dfgdsfg"}));
 		    //Console.WriteLine(result.Result);
 			Console.ReadLine();
 
@@ -79,39 +78,4 @@ namespace ConsoleApplication1
 			#endregion
 		}
 	}
-
-	[Serializable]
-	public class SomeClass
-	{
-		[DataMember]
-		public string Prop1 { get; set; }
-
-		[DataMember]
-		public string Prop2 { get; set; }
-
-		[DataMember]
-		private string _hhh;
-
-		//[DataMember]
-		public string SuperProperty
-		{
-			get { return _hhh ?? (_hhh = "ыыыЫыЫ"); }
-			set { _hhh = value; }
-		}
-		[DataMember]
-		public int Prop3 { get; set; }
-
-		[DataMember]
-		public double Prop4 { get; set; }
-
-		//[DataMember]
-		[DataMember]
-		public int[] Mass;
-
-		public SomeClass(string h)
-		{
-			_hhh = h;
-		}
-	}
-
 }

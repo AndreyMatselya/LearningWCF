@@ -27,6 +27,7 @@
     <MetadataFile FileName="ConsoleApplication1.xsd" MetadataType="Schema" ID="66806356-37c0-4957-84d7-e100e708e86c" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ef14a667-9071-47f6-be1c-c48b564513c2" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="0209d0f5-8947-4f85-9764-459c5d4e71e1" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="System.Collections.Generic.xsd" MetadataType="Schema" ID="6ea70a46-fc59-4ee9-a866-44b1b9d5b11d" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
