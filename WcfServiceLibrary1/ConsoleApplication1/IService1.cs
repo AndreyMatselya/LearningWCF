@@ -38,15 +38,6 @@ namespace ConsoleApplication1
         [OperationContract]
         Stack<Color> GetCollection(string[] people);
 
-	    #region неработающая хрнь с датасетом
-
-	    //[OperationContract]
-	    //void AddContacts(MyDataSet.ContactsDataTable contacts);
-
-	    //[OperationContract]
-	    //MyDataSet.ContactsDataTable GetContacts();
-
-	    #endregion
 	}
 
 
