@@ -66,7 +66,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Service References\ServiceReference1\Arrays.xsd">
+    <None Include="Service References\ServiceReference1\Arrays11.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.Color.datasource">
@@ -75,17 +75,17 @@
     <None Include="Service References\ServiceReference1\ConsoleApplication1.ServiceReference1.CompositeHelper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\ConsoleApplication1.xsd">
+    <None Include="Service References\ServiceReference1\ConsoleApplication111.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service.wsdl" />
-    <None Include="Service References\ServiceReference1\service.xsd">
+    <None Include="Service References\ServiceReference1\service11.wsdl" />
+    <None Include="Service References\ServiceReference1\service22.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service1.xsd">
+    <None Include="Service References\ServiceReference1\service23.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\System.Collections.Generic.xsd">
+    <None Include="Service References\ServiceReference1\System.Collections.Generic11.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
