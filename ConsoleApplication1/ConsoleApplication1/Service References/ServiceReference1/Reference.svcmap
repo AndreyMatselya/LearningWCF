@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0dd116c1-2579-469d-a7b0-68f079d4fb72" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c7e45a53-7f99-46e8-8d16-c3f0a69975da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,10 @@
     <MetadataSource Address="http://localhost:8733/trololo/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service11.wsdl" MetadataType="Wsdl" ID="97ca24c0-8317-4fca-a35c-42df3362036f" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="service22.xsd" MetadataType="Schema" ID="ec99cfdf-2c1e-494f-a9e7-a6cf7c8b8fef" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="ConsoleApplication111.xsd" MetadataType="Schema" ID="04bda172-6973-4392-b856-99d52a7d62d5" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="service23.xsd" MetadataType="Schema" ID="554c1b26-94ed-40e8-861a-7b90ea1ec8bf" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="Arrays11.xsd" MetadataType="Schema" ID="3307550e-b6a8-4716-b076-4a89209a08c5" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="System.Collections.Generic11.xsd" MetadataType="Schema" ID="de7e55bb-fb9e-4b55-a26e-247920d65af1" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e6ff866a-bdbe-44ed-bb59-76dd16df1f36" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="fc3247a6-3443-40a6-b9ee-1dc84a2fa65c" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b04ff333-ca1a-4c18-abdb-d66dfaab79b0" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="85668cd8-bf1a-447e-88f7-07b3e315f410" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
