@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
 namespace ConsoleApplication1.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
@@ -61,27 +58,7 @@ namespace ConsoleApplication1.ServiceReference1 {
             }
         }
     }
-
-    public class MyCollection : Collection<string>
-    {
-        //public Color[] _people;
-
-        public MyCollection(string[] people)
-        {
-            //_people = new Color[people.Length];
-            for (var i = 0; i < people.Length; i++)
-            {
-                this.Add(people[i]);
-            }
-
-        }
-
-        public MyCollection()
-        {
-
-        }
-    }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
@@ -185,16 +162,16 @@ namespace ConsoleApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContract1Async(ConsoleApplication1.ServiceReference1.CompositeHelper composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ProcessArray", ReplyAction="http://tempuri.org/IService1/ProcessArrayResponse")]
-        void ProcessArray(MyCollection array);
+        void ProcessArray(string[] array);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ProcessArray", ReplyAction="http://tempuri.org/IService1/ProcessArrayResponse")]
-        System.Threading.Tasks.Task ProcessArrayAsync(MyCollection array);
+        System.Threading.Tasks.Task ProcessArrayAsync(string[] array);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCollection", ReplyAction="http://tempuri.org/IService1/GetCollectionResponse")]
-        System.Collections.Generic.Stack<ConsoleApplication1.ServiceReference1.Color> GetCollection(string[] people);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetColors", ReplyAction="http://tempuri.org/IService1/GetColorsResponse")]
+        ConsoleApplication1.ServiceReference1.Color[] GetColors();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCollection", ReplyAction="http://tempuri.org/IService1/GetCollectionResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Stack<ConsoleApplication1.ServiceReference1.Color>> GetCollectionAsync(string[] people);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetColors", ReplyAction="http://tempuri.org/IService1/GetColorsResponse")]
+        System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Color[]> GetColorsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -263,23 +240,21 @@ namespace ConsoleApplication1.ServiceReference1 {
         public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.CompositeHelper> GetDataUsingDataContract1Async(ConsoleApplication1.ServiceReference1.CompositeHelper composite) {
             return base.Channel.GetDataUsingDataContract1Async(composite);
         }
-
-        public void ProcessArray(MyCollection array)
-        {
+        
+        public void ProcessArray(string[] array) {
             base.Channel.ProcessArray(array);
         }
-
-        public System.Threading.Tasks.Task ProcessArrayAsync(MyCollection array)
-        {
+        
+        public System.Threading.Tasks.Task ProcessArrayAsync(string[] array) {
             return base.Channel.ProcessArrayAsync(array);
         }
         
-        public System.Collections.Generic.Stack<ConsoleApplication1.ServiceReference1.Color> GetCollection(string[] people) {
-            return base.Channel.GetCollection(people);
+        public ConsoleApplication1.ServiceReference1.Color[] GetColors() {
+            return base.Channel.GetColors();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.Stack<ConsoleApplication1.ServiceReference1.Color>> GetCollectionAsync(string[] people) {
-            return base.Channel.GetCollectionAsync(people);
+        public System.Threading.Tasks.Task<ConsoleApplication1.ServiceReference1.Color[]> GetColorsAsync() {
+            return base.Channel.GetColorsAsync();
         }
     }
 }

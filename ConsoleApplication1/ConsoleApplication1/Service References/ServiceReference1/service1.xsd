@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
   <xs:element name="GetSimpleProperty">
     <xs:complexType>
       <xs:sequence />
@@ -83,17 +82,15 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCollection">
+  <xs:element name="GetColors">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="people" nillable="true" type="q6:ArrayOfstring" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCollectionResponse">
+  <xs:element name="GetColorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="GetCollectionResult" nillable="true" type="q7:StackOfColorqWdCJ8gt" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConsoleApplication1" minOccurs="0" name="GetColorsResult" nillable="true" type="q6:ArrayOfColor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

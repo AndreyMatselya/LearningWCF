@@ -98,10 +98,19 @@ namespace ConsoleApplication1
 		//}
 		#endregion
 
-        public Stack<Color> GetCollection(string[] peoples)
-        {
-            return new Stack<Color>(peoples.Select(x => new Color() {Name = x}));
-        }
+        //public Stack<Color> GetCollection(string[] peoples)
+        //{
+        //    return new Stack<Color>(peoples.Select(x => new Color() {Name = x}));
+        //}
 
+        List<Color> _list = new List<Color>(){new Color(){Name = "123"},new Color(){Name = "456"}}; 
+
+	    public IEnumerable<Color> GetColors()
+	    {
+            foreach (var item in _list)
+            {
+                yield return item;
+            }
+	    }
 	}
 }

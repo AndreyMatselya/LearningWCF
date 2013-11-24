@@ -33,13 +33,19 @@ namespace ConsoleApplication1
 			*/
 
 
-			Service1Client t = new Service1Client(binding, adress);
+		    var myList = new ConsoleApplication1.List<Color>();
+            myList.Add(new Color(){Name = "Andrey"});
+            myList.Add(new Color() { Name = "Vitya" });
+            myList.Add(new Color() { Name = "Matselya" });
+		    var t = myList.Count;
+            
+			Service1Client service = new Service1Client(binding, adress);
 			//Console.WriteLine(t.GetDataWithService2(777777777));
 			//var result = t.GetDataUsingDataContract(new CompositeType() {Result = "C сервачка значение"});+
-		    var p = t.GetData(343);
+		    var p = service.GetData(343);
 //		    var response = t.GetCollection(new[] {"Саша", "Маша", "Каша"});
-
-		    t.ProcessArray(new MyCollection(new string[] {"sfdsf", "dfgdsfg"}));
+		    var result = service.GetColors();
+		    
 		    //Console.WriteLine(result.Result);
 			Console.ReadLine();
 

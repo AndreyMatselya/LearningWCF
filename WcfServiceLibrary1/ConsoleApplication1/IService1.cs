@@ -35,10 +35,13 @@ namespace ConsoleApplication1
 	    [OperationContract]
 	    void ProcessArray(string[] array);
 
-        [OperationContract]
-        Stack<Color> GetCollection(string[] people);
+        //[OperationContract]
+        //Stack<Color> GetCollection(string[] people);
 
-	    #region неработающая хрнь с датасетом
+        [OperationContract]
+	    IEnumerable<Color> GetColors();
+
+        #region неработающая хрнь с датасетом
 
 	    //[OperationContract]
 	    //void AddContacts(MyDataSet.ContactsDataTable contacts);
@@ -49,27 +52,28 @@ namespace ConsoleApplication1
 	    #endregion
 	}
 
+    
 
-    [CollectionDataContract]
-    public class MyCollection:Collection<Color>
-    {
-        //public Color[] _people;
+    //[CollectionDataContract]
+    //public class MyCollection:Collection<Color>
+    //{
+    //    //public Color[] _people;
 
-        public MyCollection(string[] people) 
-        {
-            //_people = new Color[people.Length];
-            for (var i = 0; i < people.Length; i++)
-            {
-               this.Add(new Color(){Name = people[i]});
-            }
+    //    public MyCollection(string[] people) 
+    //    {
+    //        //_people = new Color[people.Length];
+    //        for (var i = 0; i < people.Length; i++)
+    //        {
+    //           this.Add(new Color(){Name = people[i]});
+    //        }
             
-        }
+    //    }
 
-        public MyCollection()
-        {
+    //    public MyCollection()
+    //    {
             
-        }
-    }
+    //    }
+    //}
     
     public class Color
     {
