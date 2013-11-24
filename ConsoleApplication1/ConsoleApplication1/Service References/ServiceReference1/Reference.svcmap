@@ -19,14 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://katusha:8733/trololo/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/trololo/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="dcfb244c-8ab1-4f7a-9a1e-1ddc04188bee" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="82d5a932-e68e-4b45-8a33-a5d6b8faefc2" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="ConsoleApplication1.xsd" MetadataType="Schema" ID="66806356-37c0-4957-84d7-e100e708e86c" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ef14a667-9071-47f6-be1c-c48b564513c2" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="0209d0f5-8947-4f85-9764-459c5d4e71e1" SourceId="1" SourceUrl="http://katusha:8733/trololo/mex" />
+    <MetadataFile FileName="service11.wsdl" MetadataType="Wsdl" ID="97ca24c0-8317-4fca-a35c-42df3362036f" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service22.xsd" MetadataType="Schema" ID="ec99cfdf-2c1e-494f-a9e7-a6cf7c8b8fef" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="ConsoleApplication111.xsd" MetadataType="Schema" ID="04bda172-6973-4392-b856-99d52a7d62d5" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service23.xsd" MetadataType="Schema" ID="554c1b26-94ed-40e8-861a-7b90ea1ec8bf" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="Arrays11.xsd" MetadataType="Schema" ID="3307550e-b6a8-4716-b076-4a89209a08c5" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="System.Collections.Generic11.xsd" MetadataType="Schema" ID="de7e55bb-fb9e-4b55-a26e-247920d65af1" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

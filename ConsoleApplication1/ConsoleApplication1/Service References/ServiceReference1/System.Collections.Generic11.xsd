@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Collections.Generic" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
+  <xs:complexType name="StackOfColorqWdCJ8gt">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="StackOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Color" Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApplication1" name="_array" nillable="true" type="q1:ArrayOfColor" />
+      <xs:element name="_size" type="xs:int" />
+      <xs:element name="_version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StackOfColorqWdCJ8gt" nillable="true" type="tns:StackOfColorqWdCJ8gt" />
+</xs:schema>
