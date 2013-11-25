@@ -11,7 +11,7 @@ namespace ConsoleApplication1
 		private static void Main(string[] args)
 		{
             var service = new Service1Client("BasicHttpBinding_IService1");
-		    for (int i = 0; i < 4; i++)
+		    for (var i = 0; i < 4; i++)
 		    {
 		        Console.WriteLine("Количество элементов: {0}",service.GetDict(i.ToString()).Count);
 		    }
