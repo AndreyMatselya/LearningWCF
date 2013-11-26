@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+using System.Drawing;
 using System.ServiceModel;
 using ConsoleApplication1.ServiceReference1;
 
@@ -12,9 +10,18 @@ namespace ConsoleApplication1
 		[STAThread]
 		private static void Main(string[] args)
 		{
-			var service = new Service1Client("ServiceReference1.IService1");
-			Console.ReadLine();
+            var service = new Service1Client("BasicHttpBinding_IService1");
+		    for (var i = 0; i < 4; i++)
+		    {
+		        Console.WriteLine("Количество элементов: {0}",service.GetDict(i.ToString()).Count);
+		    }
+
 		}
 
+
 	}
+    internal class Color
+    {
+        public string Name { get; set; }
+    }
 }
