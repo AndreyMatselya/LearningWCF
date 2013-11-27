@@ -10,12 +10,15 @@ namespace ConsoleApplication1
 		[STAThread]
 		private static void Main(string[] args)
 		{
-            var service = new Service1Client("BasicHttpBinding_IService1");
+            var service = new Service1Client("WSHttpBinding_IService1");
+            //var service = new Service1Client("BasicHttpBinding_IService1");
+            //var service = new Service1Client("NetTcpBinding_IService1");
 		    for (var i = 0; i < 4; i++)
 		    {
 		        Console.WriteLine("Количество элементов: {0}",service.GetDict(i.ToString()).Count);
 		    }
-
+            service.Close();
+		    Console.ReadLine();
 		}
 
 
