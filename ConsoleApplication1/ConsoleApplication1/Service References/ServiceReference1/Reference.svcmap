@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/trololo/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://andrey:8733/trololo/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e6ff866a-bdbe-44ed-bb59-76dd16df1f36" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="fc3247a6-3443-40a6-b9ee-1dc84a2fa65c" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b04ff333-ca1a-4c18-abdb-d66dfaab79b0" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="85668cd8-bf1a-447e-88f7-07b3e315f410" SourceId="1" SourceUrl="http://localhost:8733/trololo/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="14308a80-bbe9-466e-9cd6-00d648ac53c5" SourceId="1" SourceUrl="http://andrey:8733/trololo/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="ba21c2f8-e643-492a-9c7a-35c7d970f4c4" SourceId="1" SourceUrl="http://andrey:8733/trololo/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="731796a7-f9b0-4656-8f5e-b03bea2c12ef" SourceId="1" SourceUrl="http://andrey:8733/trololo/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="fa305aec-e8dd-49fd-a716-46a35768f189" SourceId="1" SourceUrl="http://andrey:8733/trololo/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

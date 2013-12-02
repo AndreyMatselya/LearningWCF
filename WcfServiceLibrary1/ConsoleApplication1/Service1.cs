@@ -5,12 +5,14 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Data;
 using System.Linq;
+using System.ServiceModel;
+using System.Threading;
 
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]   
-	public class Service1 : IService1,IDisposable
+     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]   
+	public class Service1 : IService1//,IDisposable
     {
         #region All old
         //public string GetData(int value)
@@ -113,20 +115,28 @@ namespace ConsoleApplication1
         //}
 #endregion
 
+		 public Service1()
+		 {
+			 _hh.Add("dsfdfg", 123);
+		 }
+
 
         IDictionary<string,int> IService1.GetDict(string key)
         {
-            hh.Add(key,123);
+            _hh.Add(key,123);
             Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
-            return hh;
+	        count++;
+            return _hh;
         }
 
-        IDictionary<string, int> hh = new Dictionary<string, int>();
+	     readonly IDictionary<string, int> _hh = new Dictionary<string, int>();
 
          public void Dispose()
          {
-             Trace.WriteLine("Dispose" + hh.Count);
+             Trace.WriteLine("Dispose" + _hh.Count);
              Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
          }
+
+	     private int count;
     }
 }
