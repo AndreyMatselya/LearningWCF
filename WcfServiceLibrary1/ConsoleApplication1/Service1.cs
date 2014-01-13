@@ -111,12 +111,17 @@ namespace ConsoleApplication1
         //}
 #endregion
         // [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.BeforeAndAfterCall)]
+		 public Service1()
+		 {
+			 _hh.Add("dsfdfg", 123);
+		 }
+
         IDictionary<string,int> IService1.GetDict(string key)
         {
-            hh.Add(key,123);
+            _hh.Add(key,123);
             Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
             Trace.WriteLine(OperationContext.Current.SessionId);
-            return hh;
+            return _hh;
         }
         
          public Service1()
@@ -134,8 +139,10 @@ namespace ConsoleApplication1
 
          public void Dispose()
          {
-             Trace.WriteLine("Dispose" + hh.Count);
+             Trace.WriteLine("Dispose" + _hh.Count);
              Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
          }
+
+	     private int count;
     }
 }

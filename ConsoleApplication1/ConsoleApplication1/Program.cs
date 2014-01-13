@@ -25,8 +25,8 @@ namespace ConsoleApplication1
                 Console.WriteLine("Количество элементов: {0}",service.GetDict(i.ToString()).Count);
                 Console.WriteLine("SessionId: " + service.InnerChannel.SessionId);
 		    }
-            service.Close();
-		    Console.ReadLine();
+			service.Close();
+			Console.ReadLine();
 		}
 
 

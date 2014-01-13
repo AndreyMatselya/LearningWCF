@@ -252,6 +252,19 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#NetTcpBinding_IService1_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetDict">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetDict" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:binding name="WSHttpBinding_IService1" type="tns:IService1">
     <wsp:PolicyReference URI="#WSHttpBinding_IService1_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -287,13 +300,16 @@
           <Upn>KATUSHA\killerok</Upn>
         </Identity>
       </wsa10:EndpointReference>
+          <Upn>MICROSOFT-PC\Andrey</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="WSHttpBinding_IService1" binding="tns:WSHttpBinding_IService1">
-      <soap12:address location="http://localhost:8733/trololo/blinws" />
+      <soap12:address location="http://andrey:8733/trololo/wsblin" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:8733/trololo/blinws</wsa10:Address>
+        <wsa10:Address>http://andrey:8733/trololo/wsblin</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>KATUSHA\killerok</Upn>
+          <Upn>MICROSOFT-PC\Andrey</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
