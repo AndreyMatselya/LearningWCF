@@ -16,12 +16,14 @@ namespace ConsoleApplication1
 	{
 		static void Main(string[] args)
 		{
+            //using (var host = new ServiceHost(new Service1()))
             using (var host = new ServiceHost(typeof(Service1)))
 			{
                 if (host.State == CommunicationState.Created)
                 {
                     host.Open();
                     Console.WriteLine("СЛУЖБА ЗАПУЩЕНА");
+                    Console.WriteLine(host.SingletonInstance == null);
                     Console.ReadLine();
                 }
 			}

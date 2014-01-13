@@ -10,7 +10,7 @@ using System.ServiceModel;
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-	[ServiceContract(SessionMode =  SessionMode.NotAllowed)]
+	[ServiceContract(SessionMode =  SessionMode.Allowed)]
 	public interface IService1
     {
         #region Все старое
@@ -41,8 +41,13 @@ namespace ConsoleApplication1
         //IEnumerable<Color> GetColors();
         #endregion
 
-	    [OperationContract]
+        [OperationContract]
+	    //[OperationContract(IsInitiating = false,IsTerminating = true)]
         IDictionary<string,int> GetDict(string key);
+
+        [OperationContract]
+       // [OperationContract(IsInitiating = true, IsTerminating = false)]
+        void Init();
     }
 
    

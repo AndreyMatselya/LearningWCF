@@ -12,7 +12,7 @@ namespace ConsoleApplication1.ServiceReference1 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDict", ReplyAction="http://tempuri.org/IService1/GetDictResponse")]
@@ -20,6 +20,12 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDict", ReplyAction="http://tempuri.org/IService1/GetDictResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, int>> GetDictAsync(string key);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Init", ReplyAction="http://tempuri.org/IService1/InitResponse")]
+        void Init();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Init", ReplyAction="http://tempuri.org/IService1/InitResponse")]
+        System.Threading.Tasks.Task InitAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace ConsoleApplication1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, int>> GetDictAsync(string key) {
             return base.Channel.GetDictAsync(key);
+        }
+        
+        public void Init() {
+            base.Channel.Init();
+        }
+        
+        public System.Threading.Tasks.Task InitAsync() {
+            return base.Channel.InitAsync();
         }
     }
 }

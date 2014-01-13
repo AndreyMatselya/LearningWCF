@@ -63,9 +63,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Service References\ServiceReference1\Arrays.xsd">
       <SubType>Designer</SubType>

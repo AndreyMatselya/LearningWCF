@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.Data;
-using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 
@@ -114,16 +110,27 @@ namespace ConsoleApplication1
         //    }
         //}
 #endregion
-
-
+        // [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.BeforeAndAfterCall)]
         IDictionary<string,int> IService1.GetDict(string key)
         {
             hh.Add(key,123);
             Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+            Trace.WriteLine(OperationContext.Current.SessionId);
             return hh;
         }
+        
+         public Service1()
+         {
+             hh = new Dictionary<string, int>() { { "12", 12 } };
+         }
+         //[OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
+         public void Init()
+         {
+            OperationContext.Current.InstanceContext.ReleaseServiceInstance();
+            Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+         }
 
-        IDictionary<string, int> hh = new Dictionary<string, int>();
+         IDictionary<string, int> hh;
 
          public void Dispose()
          {
