@@ -2,20 +2,17 @@
 <configuration>
     <system.serviceModel>
         <bindings>
-            <basicHttpBinding>
-                <binding name="BasicHttpBinding_IService1" />
-            </basicHttpBinding>
             <netTcpBinding>
-                <binding name="NetTcpBinding_IService1" maxConnections="10" />
+                <binding name="NetTcpBinding_IService1" />
+            </netTcpBinding>
+            <netTcpBinding>
+                <binding name="NetTcpBinding_IService1" />
             </netTcpBinding>
             <wsHttpBinding>
                 <binding name="WSHttpBinding_IService1" />
             </wsHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:8733/trololo/blin" binding="basicHttpBinding"
-                bindingConfiguration="BasicHttpBinding_IService1" contract="ServiceReference1.IService1"
-                name="BasicHttpBinding_IService1" />
             <endpoint address="net.tcp://localhost:8732/trololo/blin" binding="netTcpBinding"
                 bindingConfiguration="NetTcpBinding_IService1" contract="ServiceReference1.IService1"
                 name="NetTcpBinding_IService1">
@@ -23,11 +20,14 @@
                     <userPrincipalName value="KATUSHA\killerok" />
                 </identity>
             </endpoint>
-            <endpoint address="http://localhost:8733/trololo/blinws" binding="wsHttpBinding"
+                    <userPrincipalName value="MICROSOFT-PC\Andrey" />
+                </identity>
+            </endpoint>
+            <endpoint address="http://andrey:8733/trololo/wsblin" binding="wsHttpBinding"
                 bindingConfiguration="WSHttpBinding_IService1" contract="ServiceReference1.IService1"
                 name="WSHttpBinding_IService1">
                 <identity>
-                    <userPrincipalName value="KATUSHA\killerok" />
+                    <userPrincipalName value="MICROSOFT-PC\Andrey" />
                 </identity>
             </endpoint>
         </client>

@@ -14,22 +14,32 @@
 			<service name="ConsoleApplication1.Service1" behaviorConfiguration="mexBehavior">
 				<host >
 					<baseAddresses>
-						<add baseAddress = "http://localhost:8733/trololo" />
+						<add baseAddress = "http://andrey:8733/trololo" />
+            <add baseAddress="net.tcp://andrey:8732/trololo"/>
             <add baseAddress = "net.tcp://localhost:8732/trololo" />
 					</baseAddresses>
 				</host>
-        <endpoint address="blin" binding="basicHttpBinding" contract="ConsoleApplication1.IService1">
-				</endpoint>
+        <!--endpoint address="blin" binding="basicHttpBinding" contract="ConsoleApplication1.IService1">
+					<identity>
+						<dns value="localhost"/>
+					</identity>
+<<<<<<< HEAD
+				</endpoint-->
         <endpoint address="blin" binding="netTcpBinding" contract="ConsoleApplication1.IService1" bindingConfiguration="TCPSession">
         </endpoint>
         <endpoint address="blinws" binding="wsHttpBinding" contract="ConsoleApplication1.IService1">
         </endpoint>
+=======
+				</endpoint>
+        <endpoint address="blin" binding="netTcpBinding" contract="ConsoleApplication1.IService1"></endpoint>
+        <endpoint address="wsblin" binding="wsHttpBinding" contract="ConsoleApplication1.IService1"></endpoint>
+>>>>>>> 73975228d276173d05ae07b5e015880289fe11d3
         <endpoint  address="mex" binding="mexHttpBinding" contract="IMetadataExchange"/>
 			</service>
 		</services>
     <bindings >
       <netTcpBinding>
-        <binding name="TCPSession" maxConnections="10">
+        <binding name="TCPSession">
           <reliableSession/>
         </binding>
       </netTcpBinding>
@@ -37,7 +47,6 @@
 		<behaviors>
 			<serviceBehaviors>
 				<behavior name="mexBehavior">
-          <serviceThrottling />
           <serviceMetadata httpGetEnabled="True"/>
 					<serviceDebug includeExceptionDetailInFaults="True" />
           <dataContractSerializer  maxItemsInObjectGraph="43534"/>

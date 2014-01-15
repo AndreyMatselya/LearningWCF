@@ -10,143 +10,56 @@ using System.ServiceModel;
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-	[ServiceContract]
-	[ServiceKnownType(typeof(CompositeType))]
+<<<<<<< HEAD
+	[ServiceContract(SessionMode =  SessionMode.Allowed)]
+=======
+	[ServiceContract(SessionMode = SessionMode.Required)]
+>>>>>>> 73975228d276173d05ae07b5e015880289fe11d3
 	public interface IService1
-	{
-
-		[OperationContract]
-		string GetSimpleProperty();
-
-		[OperationContract]
-		string GetData(int value);
-
-		[OperationContract(Name = "GetDataDouble")]
-		string GetData(double value);
-
-		[OperationContract]
-		CompositeHelper GetDataUsingDataContract(CompositeHelper composite);
-
-		[OperationContract]
-		//[ServiceKnownType(typeof(CompositeType))]
-		CompositeHelper GetDataUsingDataContract1(CompositeHelper composite);
-		// TODO: Add your service operations here
-
-	    [OperationContract]
-	    void ProcessArray(string[] array);
+    {
+        #region Все старое
+        //[OperationContract]
+        //string GetSimpleProperty();
 
         //[OperationContract]
-        //Stack<Color> GetCollection(string[] people);
+        //string GetData(int value);
+
+        //[OperationContract(Name = "GetDataDouble")]
+        //string GetData(double value);
+
+        //[OperationContract]
+        //CompositeHelper GetDataUsingDataContract(CompositeHelper composite);
+
+        //[OperationContract]
+        ////[ServiceKnownType(typeof(CompositeType))]
+        //CompositeHelper GetDataUsingDataContract1(CompositeHelper composite);
+        //// TODO: Add your service operations here
+
+        //[OperationContract]
+        //void ProcessArray(string[] array);
+
+        ////[OperationContract]
+        ////Stack<Color> GetCollection(string[] people);
+
+        //[OperationContract]
+        //IEnumerable<Color> GetColors();
+        #endregion
 
         [OperationContract]
-	    IEnumerable<Color> GetColors();
+	    //[OperationContract(IsInitiating = false,IsTerminating = true)]
+        IDictionary<string,int> GetDict(string key);
 
-<<<<<<< HEAD
-        #region неработающая хрнь с датасетом
+        [OperationContract]
+       // [OperationContract(IsInitiating = true, IsTerminating = false)]
+        void Init();
+    }
 
-	    //[OperationContract]
-	    //void AddContacts(MyDataSet.ContactsDataTable contacts);
-
-	    //[OperationContract]
-	    //MyDataSet.ContactsDataTable GetContacts();
-
-	    #endregion
-=======
->>>>>>> e4c82de8d68536997e29d67932a71a4d4e95f527
-	}
-
-    
-
-    //[CollectionDataContract]
-    //public class MyCollection:Collection<Color>
-    //{
-    //    //public Color[] _people;
-
-    //    public MyCollection(string[] people) 
-    //    {
-    //        //_people = new Color[people.Length];
-    //        for (var i = 0; i < people.Length; i++)
-    //        {
-    //           this.Add(new Color(){Name = people[i]});
-    //        }
-            
-    //    }
-
-    //    public MyCollection()
-    //    {
-            
-    //    }
-    //}
-    
+   
+  
     public class Color
     {
         public string Name { get; set; }
     }
 
-	#region CompositeHelper и Type
-	[DataContract]
-	public class CompositeHelper
-	{
-		[DataMember()]
-		public string Result{ get; set; }
-
-		[OnSerializing]
-		void Serealizing(StreamingContext streaming)
-		{
-			//this.Result = "OnSerialized CompositeHelper";
-		}
-
-		[OnDeserializing]
-		void Deserealizing(StreamingContext streaming)
-		{
-			this.Result = "OnDeserializing Heello Andrey";
-		}
-
-	}
-
-	[DataContract]
-	public class CompositeType:CompositeHelper
-	{
-		bool boolValueeeeee = true;
-		string stringValue = "Hello ";
-
-		public  CompositeHelper Helper;
-		//[DataMember]
-		public bool BoooooolValue
-		{
-			get { return boolValueeeeee; }
-			set { boolValueeeeee = value; }
-		}
-
-		[OnSerialized]
-		void Serealizinggg(StreamingContext streaming)
-		{
-			Helper.Result = "God Buy Andrey!";
-		}
-
-		[OnDeserializing]
-		void Deserealizing(StreamingContext streaming)
-		{
-			Helper = new CompositeHelper();
-			Helper.Result = "Heello Andrey";
-		}
-
-		//[DataMember]
-		public string StringValue
-		{
-			get { return stringValue; }
-			set { stringValue = value; }
-		}
-		
-		public  int m_int;
-		[DataMember(Name = "ХерПойми")]
-		public int M_Int
-		{
-			get { return m_int; }
-			set { m_int = value; }
-		}
-	}
-
-#endregion
 
 }

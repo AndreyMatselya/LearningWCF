@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceModel;
-using System.ServiceModel.Dispatcher;
 using System.Threading;
 
 namespace ConsoleApplication1
@@ -112,39 +110,53 @@ namespace ConsoleApplication1
         //    }
         //}
 #endregion
+<<<<<<< HEAD
         // [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.BeforeAndAfterCall)]
+=======
 
+		 public Service1()
+		 {
+			 _hh.Add("dsfdfg", 123);
+		 }
+
+
+>>>>>>> 73975228d276173d05ae07b5e015880289fe11d3
         IDictionary<string,int> IService1.GetDict(string key)
         {
             _hh.Add(key,123);
-            //Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
-            //Trace.WriteLine(OperationContext.Current.SessionId);
+            Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+<<<<<<< HEAD
+            Trace.WriteLine(OperationContext.Current.SessionId);
+            return hh;
+=======
+	        count++;
             return _hh;
+>>>>>>> 73975228d276173d05ae07b5e015880289fe11d3
         }
         
          public Service1()
          {
-             Trace.WriteLine(OperationContext.Current.SessionId);
-             _hh = new Dictionary<string, int>(){{"123",123}};
+             hh = new Dictionary<string, int>() { { "12", 12 } };
          }
-
          //[OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
          public void Init()
          {
-             var t = ((ChannelDispatcher) OperationContext.Current.Host.ChannelDispatchers.First()).ServiceThrottle;
-             //Thread.Sleep(13000);
-             //OperationContext.Current.InstanceContext.ReleaseServiceInstance();
-             //Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+            OperationContext.Current.InstanceContext.ReleaseServiceInstance();
+            Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
          }
 
-         readonly IDictionary<string, int> _hh;
-
-         private int count;
+<<<<<<< HEAD
+         IDictionary<string, int> hh;
+=======
+	     readonly IDictionary<string, int> _hh = new Dictionary<string, int>();
+>>>>>>> 73975228d276173d05ae07b5e015880289fe11d3
 
          public void Dispose()
          {
-             //Trace.WriteLine("Dispose" + _hh.Count);
-             //Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+             Trace.WriteLine("Dispose" + _hh.Count);
+             Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
          }
+
+	     private int count;
     }
 }
