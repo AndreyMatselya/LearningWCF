@@ -9,7 +9,7 @@ using System.Threading;
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]   
+     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall,ConcurrencyMode = ConcurrencyMode.Reentrant)]   
 	public class Service1 : IService1,IDisposable
     {
         #region All old
@@ -114,37 +114,39 @@ namespace ConsoleApplication1
 #endregion
         // [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.BeforeAndAfterCall)]
 
-        IDictionary<string,int> IService1.GetDict(string key)
+         void IService1.GetDict(Color key)
         {
-            _hh.Add(key,123);
-            //Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
-            //Trace.WriteLine(OperationContext.Current.SessionId);
-            return _hh;
+             //foreach (var someCallback in _hh)
+             //{
+             //    someCallback.Callback();
+             //}
         }
         
          public Service1()
          {
              Trace.WriteLine(OperationContext.Current.SessionId);
-             _hh = new Dictionary<string, int>(){{"123",123}};
          }
 
          //[OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
          public void Init()
          {
-             var t = ((ChannelDispatcher) OperationContext.Current.Host.ChannelDispatchers.First()).ServiceThrottle;
-             //Thread.Sleep(13000);
-             //OperationContext.Current.InstanceContext.ReleaseServiceInstance();
-             //Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+             var calback = OperationContext.Current.GetCallbackChannel<ISomeCallback>();
+             calback.Callback();
+             //if (!_hh.Contains(calback))
+             //{
+             //    _hh.Add(calback);   
+             //}
+             
          }
 
-         readonly IDictionary<string, int> _hh;
+         static IList<ISomeCallback> _hh = new List<ISomeCallback>();
 
          private int count;
 
          public void Dispose()
          {
-             //Trace.WriteLine("Dispose" + _hh.Count);
-             //Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
+             Trace.WriteLine("Dispose" + _hh.Count);
+             Trace.WriteLine(Thread.CurrentThread.ManagedThreadId);
          }
     }
 }

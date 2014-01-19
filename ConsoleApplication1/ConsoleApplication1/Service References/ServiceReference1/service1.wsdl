@@ -3,6 +3,10 @@
   <wsp:Policy wsu:Id="NetTcpBinding_IService1_policy">
     <wsp:ExactlyOne>
       <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
         <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <wsp:Policy>
@@ -29,9 +33,13 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IService1_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IService1_policy">
     <wsp:ExactlyOne>
       <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
         <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <wsp:Policy>
             <sp:ProtectionToken>
@@ -43,6 +51,7 @@
                       <wsp:Policy>
                         <sp:SignedParts>
                           <sp:Body />
+                          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
                           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
                           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
                           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -121,15 +130,21 @@
             <sp:RequireServerEntropy />
           </wsp:Policy>
         </sp:Trust10>
+        <cdp:CompositeDuplex xmlns:cdp="http://schemas.microsoft.com/net/2006/06/duplex" />
+        <ow:OneWay xmlns:ow="http://schemas.microsoft.com/ws/2005/05/routing/policy" />
         <wsaw:UsingAddressing />
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IService1_GetDict_Input_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IService1_GetDict_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -144,11 +159,15 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IService1_GetDict_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IService1_Init_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -163,11 +182,15 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IService1_Init_Input_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IService1_Callback_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -182,11 +205,15 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IService1_Init_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IService1_Callback_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -205,52 +232,33 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetDict_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDict" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDict_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDictResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_Init_InputMessage">
     <wsdl:part name="parameters" element="tns:Init" />
   </wsdl:message>
-  <wsdl:message name="IService1_Init_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InitResponse" />
+  <wsdl:message name="IService1_Callback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Callback" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Callback_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:CallbackResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetDict">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDict" message="tns:IService1_GetDict_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDictResponse" message="tns:IService1_GetDict_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Init">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Init" message="tns:IService1_Init_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InitResponse" message="tns:IService1_Init_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Callback">
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Callback" message="tns:IService1_Callback_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CallbackResponse" message="tns:IService1_Callback_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetDict">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetDict" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Init">
-      <soap:operation soapAction="http://tempuri.org/IService1/Init" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IService1" type="tns:IService1">
     <wsp:PolicyReference URI="#NetTcpBinding_IService1_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
@@ -259,12 +267,15 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Init">
       <soap12:operation soapAction="http://tempuri.org/IService1/Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Callback">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Callback" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -273,49 +284,49 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WSHttpBinding_IService1" type="tns:IService1">
-    <wsp:PolicyReference URI="#WSHttpBinding_IService1_policy" />
+  <wsdl:binding name="WSDualHttpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#WSDualHttpBinding_IService1_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetDict">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetDict" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IService1_GetDict_Input_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IService1_GetDict_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IService1_GetDict_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Init">
       <soap12:operation soapAction="http://tempuri.org/IService1/Init" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IService1_Init_Input_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IService1_Init_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Callback">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Callback" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IService1_Callback_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IService1_Init_output_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IService1_Callback_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">
-    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
-      <soap:address location="http://localhost:8733/trololo/blin" />
-    </wsdl:port>
     <wsdl:port name="NetTcpBinding_IService1" binding="tns:NetTcpBinding_IService1">
-      <soap12:address location="net.tcp://localhost:8732/trololo/blin" />
+      <soap12:address location="net.tcp://katusha:8732/trololo/blin" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8732/trololo/blin</wsa10:Address>
+        <wsa10:Address>net.tcp://katusha:8732/trololo/blin</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>KATUSHA\killerok</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
-    <wsdl:port name="WSHttpBinding_IService1" binding="tns:WSHttpBinding_IService1">
-      <soap12:address location="http://localhost:8733/trololo/blinws" />
+    <wsdl:port name="WSDualHttpBinding_IService1" binding="tns:WSDualHttpBinding_IService1">
+      <soap12:address location="http://katusha:8733/trololo/blinDual" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:8733/trololo/blinws</wsa10:Address>
+        <wsa10:Address>http://katusha:8733/trololo/blinDual</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>KATUSHA\killerok</Upn>
         </Identity>
