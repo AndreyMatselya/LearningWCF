@@ -9,7 +9,7 @@ using System.Threading;
 namespace ConsoleApplication1
 {
 	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall,ConcurrencyMode = ConcurrencyMode.Reentrant)]   
+     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Reentrant)]   
 	public class Service1 : IService1,IDisposable
     {
         #region All old
@@ -114,34 +114,44 @@ namespace ConsoleApplication1
 #endregion
         // [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.BeforeAndAfterCall)]
 
-         void IService1.GetDict(Color key)
-        {
-             //foreach (var someCallback in _hh)
-             //{
-             //    someCallback.Callback();
-             //}
-        }
-        
+       
          public Service1()
          {
              Trace.WriteLine(OperationContext.Current.SessionId);
          }
 
          //[OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
-         public void Init()
+         public void Connect()
          {
              var calback = OperationContext.Current.GetCallbackChannel<ISomeCallback>();
-             calback.Callback();
-             //if (!_hh.Contains(calback))
-             //{
-             //    _hh.Add(calback);   
-             //}
-             
+             if (!_hh.Contains(calback))
+             {
+                 _hh.Add(calback);
+             }
+         }
+
+         public void Disconnect()
+         {
+             var calback = OperationContext.Current.GetCallbackChannel<ISomeCallback>();
+             if (_hh.Contains(calback))
+             {
+                 _hh.Remove(calback);
+             }
+             else
+             {
+                 throw new InvalidOperationException("Не найден колбек");
+             }
+         }
+
+         public void Init()
+         {
+             foreach (var someCallback in _hh)
+             {
+                 someCallback.Callback();
+             }
          }
 
          static IList<ISomeCallback> _hh = new List<ISomeCallback>();
-
-         private int count;
 
          public void Dispose()
          {

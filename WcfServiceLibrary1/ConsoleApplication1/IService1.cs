@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace ConsoleApplication1
@@ -16,7 +10,12 @@ namespace ConsoleApplication1
 
         [OperationContract]
 	    //[OperationContract(IsInitiating = false,IsTerminating = true)]
-        void GetDict(Color key);
+        void Connect();
+
+        [OperationContract]
+        //[OperationContract(IsInitiating = false,IsTerminating = true)]
+        void Disconnect();
+
 
         [OperationContract]
        // [OperationContract(IsInitiating = true, IsTerminating = false)]

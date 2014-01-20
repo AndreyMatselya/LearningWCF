@@ -68,14 +68,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Service References\ServiceReference1\ConsoleApplication11.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServiceReference1\service1.wsdl" />
     <None Include="Service References\ServiceReference1\service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\service21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

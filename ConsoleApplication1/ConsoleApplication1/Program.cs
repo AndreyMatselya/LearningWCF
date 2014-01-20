@@ -27,13 +27,16 @@ namespace ConsoleApplication1
             _service = new Service1Client(context, "WSDualHttpBinding_IService1");
           //for (var i = 0; i < 20; i++)
                 //{
-		            _service.Init();
-                    //service.GetDict(new ServiceReference1.Color(){Name = "dsfdgf"});
+            Console.Write("Потомк №{0}\n", Thread.CurrentThread.ManagedThreadId);
+		            _service.Connect();
+            _service.Disconnect();
+            _service.Init();
+                    //_service.GetDict(new ServiceReference1.Color() { Name = "dsfdgf" });
                     //Console.WriteLine("Количество элементов: {0}", service.GetDict(i.ToString()).Count);
                     //Console.WriteLine("SessionId: " + service.InnerChannel.SessionId);
-
-
-
+             
+            
+            Console.Write("Потомк №{0}\n", Thread.CurrentThread.ManagedThreadId);
 
 			
 			Console.ReadLine();

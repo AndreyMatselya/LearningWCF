@@ -9,69 +9,28 @@
 //------------------------------------------------------------------------------
 
 namespace ConsoleApplication1.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Color", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApplication1")]
-    [System.SerializableAttribute()]
-    public partial class Color : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1", CallbackContract=typeof(ConsoleApplication1.ServiceReference1.IService1Callback))]
     public interface IService1 {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService1/GetDict")]
-        void GetDict(ConsoleApplication1.ServiceReference1.Color key);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Connect", ReplyAction="http://tempuri.org/IService1/ConnectResponse")]
+        void Connect();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService1/GetDict")]
-        System.Threading.Tasks.Task GetDictAsync(ConsoleApplication1.ServiceReference1.Color key);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Connect", ReplyAction="http://tempuri.org/IService1/ConnectResponse")]
+        System.Threading.Tasks.Task ConnectAsync();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService1/Init")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Disconnect", ReplyAction="http://tempuri.org/IService1/DisconnectResponse")]
+        void Disconnect();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Disconnect", ReplyAction="http://tempuri.org/IService1/DisconnectResponse")]
+        System.Threading.Tasks.Task DisconnectAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Init", ReplyAction="http://tempuri.org/IService1/InitResponse")]
         void Init();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService1/Init")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Init", ReplyAction="http://tempuri.org/IService1/InitResponse")]
         System.Threading.Tasks.Task InitAsync();
     }
     
@@ -110,12 +69,20 @@ namespace ConsoleApplication1.ServiceReference1 {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void GetDict(ConsoleApplication1.ServiceReference1.Color key) {
-            base.Channel.GetDict(key);
+        public void Connect() {
+            base.Channel.Connect();
         }
         
-        public System.Threading.Tasks.Task GetDictAsync(ConsoleApplication1.ServiceReference1.Color key) {
-            return base.Channel.GetDictAsync(key);
+        public System.Threading.Tasks.Task ConnectAsync() {
+            return base.Channel.ConnectAsync();
+        }
+        
+        public void Disconnect() {
+            base.Channel.Disconnect();
+        }
+        
+        public System.Threading.Tasks.Task DisconnectAsync() {
+            return base.Channel.DisconnectAsync();
         }
         
         public void Init() {
